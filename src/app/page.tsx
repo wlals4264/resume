@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/Section";
 import {
   career,
@@ -12,23 +13,33 @@ import {
 export default function ResumePage() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-24">
-      <header className="pb-10 pt-16">
-        <h1 className="text-[36px] font-extrabold leading-[1.15] tracking-[-0.03em] text-gray-900 sm:text-[44px]">
-          {profile.name}
-        </h1>
-        <p className="mt-1.5 text-[15px] font-medium text-accent">{profile.role}</p>
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] text-gray-500">
-          <a href={`mailto:${profile.email}`} className="hover:text-gray-900">
-            {profile.email}
-          </a>
-          <span className="text-gray-300">·</span>
-          <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-gray-900">
-            {profile.githubHandle}
-          </a>
-          <span className="text-gray-300">·</span>
-          <a href={profile.blog} target="_blank" rel="noreferrer" className="hover:text-gray-900">
-            {profile.blogHandle}
-          </a>
+      <header className="flex items-center gap-5 pb-10 pt-16">
+        <Image
+          src="/images/profile.jpg"
+          alt={profile.name}
+          width={88}
+          height={88}
+          priority
+          className="h-[88px] w-[88px] shrink-0 rounded-full object-cover ring-1 ring-gray-200"
+        />
+        <div>
+          <h1 className="text-[32px] font-extrabold leading-[1.15] tracking-[-0.03em] text-gray-900 sm:text-[40px]">
+            {profile.name}
+          </h1>
+          <p className="mt-1 text-[15px] font-medium text-accent">{profile.role}</p>
+          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] text-gray-500">
+            <a href={`mailto:${profile.email}`} className="hover:text-gray-900">
+              {profile.email}
+            </a>
+            <span className="text-gray-300">·</span>
+            <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-gray-900">
+              {profile.githubHandle}
+            </a>
+            <span className="text-gray-300">·</span>
+            <a href={profile.blog} target="_blank" rel="noreferrer" className="hover:text-gray-900">
+              {profile.blogHandle}
+            </a>
+          </div>
         </div>
       </header>
 

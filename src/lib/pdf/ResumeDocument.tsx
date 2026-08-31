@@ -1,4 +1,4 @@
-import { Document, Font, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, Font, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import {
   career,
   education,
@@ -23,11 +23,12 @@ export function registerPdfFonts(fontBaseUrl: string) {
 }
 
 const colors = {
-  fg: "#18181b",
-  muted: "#71717a",
-  subtle: "#a1a1aa",
-  border: "#e4e4e7",
-  tagBg: "#f4f4f5",
+  fg: "#101828",
+  muted: "#6a7282",
+  subtle: "#99a1af",
+  border: "#e5e7eb",
+  tagBg: "#fafafa",
+  accent: "#4f46e5",
 };
 
 const styles = StyleSheet.create({
@@ -39,8 +40,10 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
     paddingHorizontal: 44,
   },
+  headerRow: { flexDirection: "row", alignItems: "center", gap: 14 },
+  avatar: { width: 62, height: 62, borderRadius: 31 },
   name: { fontSize: 22, fontWeight: 700, lineHeight: 1.3 },
-  role: { fontSize: 11, color: colors.muted, marginTop: 6, lineHeight: 1.3 },
+  role: { fontSize: 11, color: colors.accent, fontWeight: 500, marginTop: 6, lineHeight: 1.3 },
   contactRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 10, gap: 8 },
   contactItem: { fontSize: 9, color: colors.muted },
   section: {
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 8.5,
     fontWeight: 700,
-    color: colors.subtle,
+    color: colors.accent,
     letterSpacing: 1.5,
     marginBottom: 10,
     textTransform: "uppercase",
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
   itemSub: { fontSize: 9, color: colors.muted, marginTop: 1 },
   itemDesc: { fontSize: 8.5, color: colors.subtle, marginTop: 2 },
   bulletRow: { flexDirection: "row", marginTop: 5 },
-  bulletDot: { width: 8, fontSize: 9 },
+  bulletDot: { width: 8, fontSize: 9, color: colors.accent },
   bulletText: { flex: 1, fontSize: 9 },
   highlightBox: {
     backgroundColor: colors.tagBg,
@@ -96,17 +99,20 @@ function Bullets({ items }: { items: string[] }) {
   );
 }
 
-export default function ResumeDocument() {
+export default function ResumeDocument({ imageBaseUrl }: { imageBaseUrl: string }) {
   return (
     <Document title={`${profile.name} 이력서`} author={profile.name}>
       <Page size="A4" style={styles.page} wrap>
-        <View>
-          <Text style={styles.name}>{profile.name}</Text>
-          <Text style={styles.role}>{profile.role}</Text>
-          <View style={styles.contactRow}>
-            <Text style={styles.contactItem}>{profile.email}</Text>
-            <Text style={styles.contactItem}>{profile.githubHandle}</Text>
-            <Text style={styles.contactItem}>{profile.blogHandle}</Text>
+        <View style={styles.headerRow}>
+          <Image src={`${imageBaseUrl}/images/profile.jpg`} style={styles.avatar} />
+          <View>
+            <Text style={styles.name}>{profile.name}</Text>
+            <Text style={styles.role}>{profile.role}</Text>
+            <View style={styles.contactRow}>
+              <Text style={styles.contactItem}>{profile.email}</Text>
+              <Text style={styles.contactItem}>{profile.githubHandle}</Text>
+              <Text style={styles.contactItem}>{profile.blogHandle}</Text>
+            </View>
           </View>
         </View>
 
