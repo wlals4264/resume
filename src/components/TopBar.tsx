@@ -13,19 +13,19 @@ export default function TopBar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-10 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4 sm:px-10">
-        <nav className="flex items-center gap-1">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-12 max-w-2xl items-center justify-between px-6">
+        <nav className="flex gap-1">
           {tabs.map((tab) => {
             const active = pathname === tab.href;
             return (
               <Link
                 key={tab.href}
                 href={tab.href}
-                className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
+                className={`rounded-lg px-3.5 py-1.5 text-[13px] font-semibold transition-colors ${
                   active
-                    ? "bg-accent text-background"
-                    : "text-muted hover:bg-tag-bg hover:text-foreground"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-400 hover:bg-gray-100 hover:text-gray-900"
                 }`}
               >
                 {tab.label}
@@ -36,15 +36,15 @@ export default function TopBar() {
         <a
           href="/api/pdf"
           download={`이력서_${profile.name}.pdf`}
-          className="flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-accent hover:bg-tag-bg"
+          className="flex items-center gap-1.5 rounded-lg bg-accent px-4 py-1.5 text-[12px] font-bold text-white transition-colors hover:bg-accent/85"
         >
           <svg
-            width="14"
-            height="14"
+            width="13"
+            height="13"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
