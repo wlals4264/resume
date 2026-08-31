@@ -1,0 +1,223 @@
+export const profile = {
+  name: "김지민",
+  role: "Frontend Developer",
+  email: "jimin2eezz@gmail.com",
+  github: "https://github.com/wlals4264",
+  githubHandle: "github.com/wlals4264",
+  blog: "https://velog.io/@wlals4264",
+  blogHandle: "velog.io/@wlals4264",
+  oldPortfolio: "https://bluemin-portfolio.vercel.app",
+  oldPortfolioHandle: "bluemin-portfolio.vercel.app",
+};
+
+export const summary: string[] = [
+  "프론트엔드 개발자로서 Next.js, React 프레임워크 기반으로 B2C 웹 서비스를 개발하며, Hybrid App의 WebView 환경에서의 상태관리, 브릿지 설계를 통한 Native 연동까지 다룬 경험이 있습니다.",
+  "수면 헬스케어 서비스에서 사용자 기능 개발, Playwright E2E 테스트, GA4 기반 사용자 행동 분석, Admin 개발까지 프로덕트 개발부터 검증·운영까지 전체 라이프사이클을 경험했습니다. RN 기반으로 운영되고 있는 앱을 유지보수하며 파악한 플랫폼의 한계를 바탕으로, RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·HealthKit 등 핵심 Native 기능 구현을 주도하고 있습니다.",
+  "유저가 실제 사용하는 과정에서 발생하는 Web-Native 경계의 lifecycle·navigation·권한 등의 문제의 원인을 파악하고 해결해왔습니다. 사내 AI 도입이 활성화됨에 따라 Cursor Rules/Skills와 E2E 시나리오로 AI Agent가 프로젝트 규칙과 검증 절차를 따르도록 개발 프로세스를 구조화하고 있습니다.",
+];
+
+export const skills: { category: string; items: string[] }[] = [
+  { category: "Core", items: ["TypeScript", "JavaScript", "React", "Next.js", "HTML/CSS"] },
+  { category: "State / Data", items: ["TanStack Query", "Zustand", "Recoil", "React Hook Form"] },
+  { category: "UI", items: ["Styled-components", "Tailwind CSS", "DaisyUI", "ECharts"] },
+  {
+    category: "Mobile / Hybrid",
+    items: [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "React Native",
+      "WebView",
+      "Native Bridge",
+      "HealthKit / Health Connect",
+    ],
+  },
+  { category: "Quality / Analytics", items: ["Playwright", "Vitest", "GA4", "Sentry", "Kakao Pixel"] },
+  { category: "Workflow", items: ["Git", "GitLab", "Jira", "Cursor", "MCP", "Figma", "Notion"] },
+];
+
+export type CareerHighlight = {
+  title: string;
+  bullets: string[];
+};
+
+export type CareerItem = {
+  company: string;
+  role: string;
+  period: string;
+  periodDetail?: string;
+  description: string;
+  bullets: string[];
+  highlight?: CareerHighlight;
+};
+
+export const career: CareerItem[] = [
+  {
+    company: "슬립포레스트",
+    role: "Frontend Developer",
+    period: "2025.08 ~ 재직중",
+    periodDetail: "1년 1개월",
+    description: "수면 헬스케어 B2C 서비스 · Web(Next.js) / Hybrid App(RN → Flutter) / Admin(React)",
+    bullets: [
+      "Next.js 15 App Router 기반 WebView 서비스에서 수면 분석 리포트·일기 작성 및 공유하기·건기식 복용 일정 체크·온보딩 등 주요 사용자 기능을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축",
+      "RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·백그라운드 오디오 재생·HealthKit·권한 요청 등 핵심 Native 기능 구현을 iOS·Android 양쪽 대응으로 주도하고, 운영 중인 React Native 앱 코드도 함께 유지보수",
+      "Vite·React 19 기반 운영 Admin에서 CMS·유저·쿠폰·오류 관리 화면과, GA Data API·ECharts 기반 통계 대시보드를 10개 Query 도메인 표준화 구조로 구축",
+    ],
+    highlight: {
+      title: "RN → Flutter 전환 — 핵심 Native 기능 구현 주도",
+      bullets: [
+        "React Native로 운영 중인 서비스의 차기 버전을 Flutter로 개발하며, MVP 초기 구축부터 위 핵심 Native 기능 구현을 담당",
+        "RN 앱 유지보수를 통해 쌓은 프로덕션 동작 이해를 바탕으로, Flutter 전환 버전에 필요한 Web-Native 연동을 설계",
+        "Next.js SPA와 Native 사이에서 발생하는 navigation·lifecycle·권한·Health 데이터 연동 이슈를 Web/Flutter 양쪽에서 대응",
+      ],
+    },
+  },
+];
+
+export type ProblemCase = {
+  id: string;
+  title: string;
+  problem: string;
+  solution: string;
+  result: string;
+};
+
+export const problemSolving: ProblemCase[] = [
+  {
+    id: "e2e",
+    title: "Playwright 기반 주요 사용자 플로우 E2E 체계 구축",
+    problem: "AI로 생성한 E2E 스펙만으로는 실제 사용자 플로우·API 스펙과의 정합성을 보장할 수 없음",
+    solution:
+      "온보딩·홈·리포트·MY·HFF·루틴·NPS 등 주요 플로우를 19개 spec·약 303개 케이스로 구성하고, 실패 케이스를 사용자 플로우·Swagger 스펙과 대조 검증, Notion에 시나리오 상태·수정 이력을 Jira와 연동해 관리",
+    result:
+      "남은 오류는 백엔드와 협업해 해결하고, 로컬 및 Mobile Chrome/Safari 환경에서 반복 실행 가능한 회귀 검증 체계로 운영",
+  },
+  {
+    id: "navigation",
+    title: "WebView ↔ Native navigation race condition 해결",
+    problem: "수면 측정 종료 후 Native의 postMessage가 React listener 등록 전에 도착해 화면 이동이 유실",
+    solution: "pending event queue와 early listener를 적용하고 Next.js App Router의 router.replace와 연결",
+    result: "full reload 없이 SPA navigation을 구현해 화면 이동 유실 없이 안정적으로 동작",
+  },
+  {
+    id: "ga4",
+    title: "GA4 기반 사용자 행동 수집과 운영 지표 연결",
+    problem: "WebView SPA 특성상 GA4 자동 pageview만으로는 실제 라우팅 이동을 정확히 추적하기 어려움",
+    solution:
+      "자동 pageview를 끄고 route 변경 기반 page_view와 sign_up·banner_click·share·error_log 등 이벤트를 직접 설계해 수집",
+    result: "Admin에서 GA Data API의 stream/event/custom dimension 필터로 DAU·이벤트·오류 로그 등 운영 리포트로 연결해 시각화",
+  },
+  {
+    id: "admin-query",
+    title: "React Admin API·서버 상태 관리 구조 표준화",
+    problem: "도메인마다 fetch·인증·에러 처리와 query key 관리 방식이 제각각이라 유지보수와 재사용이 어려움",
+    solution:
+      "commFetch + TanStack Query + query-key-factory 구조로 표준화해 10개 Query 도메인에 공통 적용하고, access token 갱신 시 refreshPromise를 공유",
+    result: "병렬 요청의 중복 refresh를 방지해 인증 처리를 안정화",
+  },
+  {
+    id: "healthkit",
+    title: "iOS·Android 걸음 수 동기화 정합성 개선",
+    problem:
+      "iOS HealthKit 구간 조회 시 15분 격자 밖 마지막 구간이 버킷에서 누락되고, HealthKit이 권한 허용 여부를 앱에 공개하지 않아 상태 판별이 어려움",
+    solution:
+      "Android의 버킷 라벨링 로직을 iOS(Flutter)에도 동일하게 구현해 partial 구간 누락을 방지하고, 최근 7일 걸음 수 유무로 권한 상태를 추론. 표시(기기 총합)와 서버 저장(버킷 raw)의 책임을 분리해 초기 도입했던 diff 보정 로직을 제거",
+    result: "iOS·Android 걸음 수가 버킷 누락 없이 동기화되고, 기상 알람 시 최대 13일 백필까지 안정적으로 처리되는 동기화 체계로 운영",
+  },
+  {
+    id: "ai-workflow",
+    title: "AI Agent 개발 workflow 구조화",
+    problem: "AI Agent가 프로젝트 컨벤션과 검증 절차 없이 작업해 결과물의 일관성과 추적성이 낮음",
+    solution:
+      "Cursor Rules/Skills와 AGENTS.md에 프로젝트 컨벤션, Jira 티켓 구현, E2E 시나리오, MR 생성, 작업 종료 DoD를 문서화하고, PRD → Plan → 구현 → E2E → Closeout 전 과정을 표준화",
+    result:
+      "Cursor 도입 후 처리 속도(MR/주)가 1.2건 → 9~15건대로 올라 유지됐고, 스킬을 단계적으로 설계해 붙인 뒤 커밋 티켓 추적률 9% → 78%, AI 커밋 완결률 0% → 88%로 개선",
+  },
+  {
+    id: "audio-session",
+    title: "iOS 통합 오디오 세션 관리",
+    problem: "RN 대비 오디오 재생 방식을 전환하는 과정에서 WebView 내 유튜브 등 웹 콘텐츠 오디오와 세션이 충돌해 제대로 정리되지 않는 문제 발생",
+    solution:
+      "재생·녹음 상황별 우선순위를 정리해 오디오 세션을 전환·공유하는 로직을 설계하고, 웹 콘텐츠 재생 시작·종료 시 세션을 명시적으로 비활성화·재활성화하도록 처리",
+    result:
+      "TestFlight 내부 테스터 리포트를 바탕으로 재현·수정해 오디오 충돌 없이 안정적으로 동작 (현재 내부 테스트 단계, 정식 배포 전)",
+  },
+];
+
+export type ProjectItem = {
+  name: string;
+  role: string;
+  period: string;
+  team: string;
+  description: string;
+  bullets: string[];
+  links: { label: string; url: string }[];
+};
+
+export const projects: ProjectItem[] = [
+  {
+    name: "OOOTTT",
+    role: "Frontend / Flutter",
+    period: "2026.03 ~ 2026.08",
+    team: "5인 팀",
+    description: "취향 기반 OTT 추천 및 구독 요금제 관리 플랫폼 · App Store / Google Play 배포",
+    bullets: [
+      "iOS/Android 빌드 관리와 App Store·Google Play 심사 대응을 직접 진행해 실 사용자가 다운로드할 수 있는 앱으로 배포",
+      "라이브러리로 표현하기 어려운 인터랙션을 위해 CustomPainter 기반 커스텀 차트·애니메이션을 직접 설계",
+      "검색 데이터는 클라이언트 조회, 시청 기록·통계는 서버 누적으로 분리하는 데이터 책임 범위를 팀과 협의해 설계",
+    ],
+    links: [
+      { label: "GitHub", url: "https://github.com/OOOTTT-dev/app" },
+    ],
+  },
+  {
+    name: "MOMO",
+    role: "Frontend",
+    period: "2024.12 ~ 2025.02",
+    team: "5인 팀",
+    description: "밥친구 매칭 서비스",
+    bullets: [
+      "React·TypeScript 기반으로 UI와 핵심 기능을 개발하고, TanStack Query로 서버 상태를 관리",
+      "STOMP 기반 실시간 양방향 채팅을 구현하고, Recoil로 클라이언트 상태를, Tailwind CSS로 UI 스타일링을 구성",
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/Team-momo-front/momo-front" }],
+  },
+  {
+    name: "OlaOla",
+    role: "Frontend",
+    period: "2024.11 ~ 2024.12 (약 1개월)",
+    team: "개인 프로젝트",
+    description: "클라이밍 커뮤니티 사진·영상 공유 플랫폼 · 백엔드 서버 미사용",
+    bullets: [
+      "별도 백엔드 없이 브라우저 IndexedDB를 저장소로 활용해 미디어 업로드·게시글 CRUD를 클라이언트에서 직접 설계",
+      "무한 스크롤·페이지네이션·이미지 캐러셀을 라이브러리 없이 순수 JavaScript로 직접 구현, Firebase Authentication으로 로그인 연동",
+    ],
+    links: [
+      { label: "GitHub", url: "https://github.com/wlals4264/olaola" },
+      { label: "Live", url: "https://ola-ola-nine.vercel.app" },
+    ],
+  },
+];
+
+export const education = [
+  {
+    school: "숙명여자대학교",
+    major: "작곡과 (복수전공 문화예술기획)",
+    period: "2014.03 ~ 2019.02",
+    detail: "학사 졸업 · GPA 3.99 / 4.5",
+  },
+];
+
+export const training = [
+  {
+    name: "제로베이스캠프 · 프론트엔드 개발 과정",
+    period: "2024.03 ~ 2024.12 수료 (과정 중 유예)",
+    detail: "HTML/CSS/JavaScript, CS·자료구조, React, TypeScript 과정. 수료 후 팀과 2025.02까지 프로젝트 연장 진행",
+  },
+];
+
+export const links = [
+  { label: "Portfolio (이전)", value: profile.oldPortfolioHandle, url: profile.oldPortfolio },
+  { label: "Blog", value: profile.blogHandle, url: profile.blog },
+  { label: "GitHub", value: profile.githubHandle, url: profile.github },
+];
