@@ -35,50 +35,50 @@ const styles = StyleSheet.create({
   page: {
     fontFamily: "Pretendard",
     fontSize: 9.5,
-    lineHeight: 1.55,
+    lineHeight: 1.42,
     color: colors.fg,
-    paddingVertical: 40,
+    paddingVertical: 26,
     paddingHorizontal: 44,
   },
-  headerRow: { flexDirection: "row", alignItems: "center", gap: 14 },
-  avatar: { width: 62, height: 62, borderRadius: 31 },
-  name: { fontSize: 22, fontWeight: 700, lineHeight: 1.3 },
-  role: { fontSize: 11, color: colors.accent, fontWeight: 500, marginTop: 6, lineHeight: 1.3 },
-  contactRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 10, gap: 8 },
+  headerRow: { flexDirection: "row", alignItems: "center", gap: 12 },
+  avatar: { width: 54, height: 54, borderRadius: 27 },
+  name: { fontSize: 20, fontWeight: 700, lineHeight: 1.3 },
+  role: { fontSize: 10.5, color: colors.accent, fontWeight: 500, marginTop: 4, lineHeight: 1.3 },
+  contactRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 7, gap: 8 },
   contactItem: { fontSize: 9, color: colors.muted },
   section: {
     borderTopWidth: 1,
     borderTopColor: colors.border,
-    marginTop: 16,
-    paddingTop: 16,
+    marginTop: 9,
+    paddingTop: 9,
   },
-  sectionFirst: { marginTop: 20 },
+  sectionFirst: { marginTop: 10 },
   sectionTitle: {
     fontSize: 8.5,
     fontWeight: 700,
     color: colors.accent,
     letterSpacing: 1.5,
-    marginBottom: 10,
+    marginBottom: 7,
     textTransform: "uppercase",
   },
-  paragraph: { marginBottom: 6 },
-  skillRow: { flexDirection: "row", marginBottom: 5 },
+  paragraph: { marginBottom: 4 },
+  skillRow: { flexDirection: "row", marginBottom: 3 },
   skillLabel: { width: 90, fontSize: 9, fontWeight: 500, color: colors.muted },
   skillValue: { flex: 1, fontSize: 9 },
-  itemBlock: { marginBottom: 14 },
+  itemBlock: { marginBottom: 8 },
   itemHeaderRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "baseline" },
   itemTitle: { fontSize: 10.5, fontWeight: 600 },
   itemPeriod: { fontSize: 8.5, color: colors.muted },
   itemSub: { fontSize: 9, color: colors.muted, marginTop: 1 },
   itemDesc: { fontSize: 8.5, color: colors.subtle, marginTop: 2 },
-  bulletRow: { flexDirection: "row", marginTop: 5 },
+  bulletRow: { flexDirection: "row", marginTop: 3 },
   bulletDot: { width: 8, fontSize: 9, color: colors.accent },
   bulletText: { flex: 1, fontSize: 9 },
   highlightBox: {
     backgroundColor: colors.tagBg,
     borderRadius: 6,
-    padding: 10,
-    marginTop: 8,
+    padding: 8,
+    marginTop: 5,
   },
   highlightTitle: { fontSize: 9.5, fontWeight: 600 },
   linkRow: { flexDirection: "row", marginBottom: 4 },
@@ -116,7 +116,7 @@ export default function ResumeDocument({ imageBaseUrl }: { imageBaseUrl: string 
           </View>
         </View>
 
-        <View style={[styles.section, styles.sectionFirst]}>
+        <View style={[styles.section, styles.sectionFirst]} wrap={false}>
           <Text style={styles.sectionTitle}>Summary</Text>
           {summary.map((p, i) => (
             <Text key={i} style={styles.paragraph}>
@@ -125,7 +125,7 @@ export default function ResumeDocument({ imageBaseUrl }: { imageBaseUrl: string 
           ))}
         </View>
 
-        <View style={styles.section}>
+        <View style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>Skills</Text>
           {skills.map((group) => (
             <View key={group.category} style={styles.skillRow}>
@@ -135,7 +135,7 @@ export default function ResumeDocument({ imageBaseUrl }: { imageBaseUrl: string 
           ))}
         </View>
 
-        <View style={styles.section}>
+        <View style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>Career</Text>
           {career.map((item) => (
             <View key={item.company} style={styles.itemBlock} wrap>
@@ -159,7 +159,7 @@ export default function ResumeDocument({ imageBaseUrl }: { imageBaseUrl: string 
           ))}
         </View>
 
-        <View style={styles.section}>
+        <View style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>Education</Text>
           {education.map((item) => (
             <View key={item.school} style={styles.itemBlock} wrap={false}>
@@ -173,7 +173,7 @@ export default function ResumeDocument({ imageBaseUrl }: { imageBaseUrl: string 
           ))}
         </View>
 
-        <View style={styles.section}>
+        <View style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>Training</Text>
           {training.map((item) => (
             <View key={item.name} style={styles.itemBlock} wrap={false}>
