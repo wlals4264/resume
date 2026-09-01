@@ -1,4 +1,4 @@
-import { MiniBarChart } from "@/components/MiniBarChart";
+import AdminDashboardPreview from "@/components/AdminDashboardPreview";
 import { BeforeAfterCompare, PendingQueueDiagram } from "@/components/NavigationFlowDiagrams";
 import Section from "@/components/Section";
 import StepSyncCloseup from "@/components/StepSyncCloseup";
@@ -190,20 +190,7 @@ export default function PortfolioContent() {
                   ))}
                 </div>
               )}
-              {item.id === "ga4" && (
-                <MiniBarChart
-                  title="Admin DAU 대시보드"
-                  data={[
-                    { label: "월", value: 62 },
-                    { label: "화", value: 58 },
-                    { label: "수", value: 71 },
-                    { label: "목", value: 66 },
-                    { label: "금", value: 80 },
-                    { label: "토", value: 95 },
-                    { label: "일", value: 88 },
-                  ]}
-                />
-              )}
+              {item.id === "ga4" && <AdminDashboardPreview />}
               {item.id === "healthkit" && <StepSyncCloseup />}
             </div>
           ))}

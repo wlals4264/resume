@@ -144,7 +144,7 @@ export const problemSolving: ProblemCase[] = [
     process: {
       rows: [
         {
-          label: "Route 변경 추적 (GaProvider)",
+          label: "Route 변경 추적",
           steps: [
             "pathname·searchParams 변경 감지",
             "pageview(url, prevPage, userId)",
@@ -152,17 +152,13 @@ export const problemSolving: ProblemCase[] = [
           ],
         },
         {
-          label: "커스텀 이벤트 (sendEvent)",
+          label: "커스텀 이벤트",
           steps: ["sign_up / banner_click / share / error_log", "gtag('event', action, params)"],
         },
         {
-          label: "Admin 조회 (GA Data API)",
-          steps: [
-            "runReport (dimensions·metrics)",
-            "stream 필터 (prod·dev·ios·android)",
-            "DAU·이벤트·오류 로그 대시보드",
-          ],
-          highlightStep: "DAU·이벤트·오류 로그 대시보드",
+          label: "Admin 조회",
+          steps: ["runReport 조회", "stream 필터", "DAU·오류 대시보드"],
+          highlightStep: "DAU·오류 대시보드",
         },
       ],
     },
