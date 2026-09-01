@@ -13,7 +13,7 @@ import {
 export default function ResumeContent() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-24">
-      <header className="flex items-start justify-between gap-6 pb-10 pt-16">
+      <header className="flex items-end justify-between gap-6 pb-10 pt-16">
         <div>
           <h1 className="text-[32px] font-extrabold leading-[1.15] tracking-[-0.03em] text-gray-900 sm:text-[40px]">
             {profile.name}
@@ -33,15 +33,17 @@ export default function ResumeContent() {
             </a>
           </div>
         </div>
-        <Image
-          src="/images/profile.jpg"
-          alt={profile.name}
-          width={120}
-          height={160}
-          quality={95}
-          priority
-          className="h-40 w-[120px] shrink-0 rounded-2xl object-cover ring-1 ring-gray-200"
-        />
+        <div className="h-44 w-[132px] shrink-0 rounded-2xl bg-white p-2 ring-1 ring-gray-200">
+          <Image
+            src="/images/profile.jpg"
+            alt={profile.name}
+            width={120}
+            height={160}
+            quality={95}
+            priority
+            className="h-full w-full rounded-lg object-contain"
+          />
+        </div>
       </header>
 
       <Section title="About">
