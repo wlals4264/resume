@@ -1,5 +1,5 @@
 import Section from "@/components/Section";
-import { problemSolving, profile, projects } from "@/content/resume";
+import { problemSolving, projects } from "@/content/resume";
 
 function CaseField({ label, text }: { label: string; text: string }) {
   return (
@@ -21,8 +21,8 @@ export default function PortfolioPage() {
           Portfolio
         </h1>
         <p className="mt-3 max-w-lg text-[15px] leading-[1.8] text-gray-600">
-          {profile.name}이 실무에서 마주친 문제를 배경 → 문제 → 해결 → 결과 순서로 정리한 사례와,
-          직접 진행한 프로젝트입니다.
+          실무에서 마주친 문제를 배경 → 문제 → 해결 → 결과 순서로 정리한 사례와,
+          직접 진행한 개인&팀 프로젝트입니다.
         </p>
       </header>
 
