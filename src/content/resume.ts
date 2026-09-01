@@ -2,6 +2,8 @@ export const profile = {
   name: "김지민",
   role: "Frontend Developer",
   email: "jimin2eezz@gmail.com",
+  phone: "010-7369-0111",
+  address: "서울시 동작구",
   github: "https://github.com/wlals4264",
   githubHandle: "github.com/wlals4264",
   blog: "https://velog.io/@wlals4264",
