@@ -48,28 +48,30 @@ export default function ResumeContent() {
               <span className="text-gray-300">·</span>
               <span>{profile.address}</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <GithubIcon />
-              <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-gray-900">
-                {profile.githubHandle}
-              </a>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <VelogIcon />
-              <a href={profile.blog} target="_blank" rel="noreferrer" className="hover:text-gray-900">
-                {profile.blogHandle}
-              </a>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              <span className="flex items-center gap-1.5">
+                <GithubIcon />
+                <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-gray-900">
+                  {profile.githubHandle}
+                </a>
+              </span>
+              <span className="flex items-center gap-1.5">
+                <VelogIcon />
+                <a href={profile.blog} target="_blank" rel="noreferrer" className="hover:text-gray-900">
+                  {profile.blogHandle}
+                </a>
+              </span>
             </div>
           </div>
         </div>
         <Image
           src="/images/profile.jpg"
           alt={profile.name}
-          width={78}
-          height={104}
+          width={96}
+          height={128}
           quality={95}
           priority
-          className="h-[104px] w-[78px] shrink-0 rounded-xl object-cover ring-1 ring-gray-200"
+          className="h-32 w-24 shrink-0 rounded-xl object-cover ring-1 ring-gray-200"
         />
       </header>
 
