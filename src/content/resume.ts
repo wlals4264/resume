@@ -187,7 +187,7 @@ export const problemSolving: ProblemCase[] = [
     solution:
       "Cursor Rules/Skills와 AGENTS.md에 프로젝트 컨벤션, Jira 티켓 구현, E2E 시나리오, MR 생성, 작업 종료 DoD를 문서화하고, PRD → Plan → 구현 → E2E → Closeout 전 과정을 표준화",
     result:
-      "Cursor 도입 후 처리 속도(MR/주)가 1.2건 → 9~15건대로 올라 유지됐고, 스킬을 단계적으로 설계해 붙인 뒤 커밋 티켓 추적률 9% → 78%, AI 커밋 완결률 0% → 88%로 개선",
+      "Cursor 기반 AI 워크플로우를 성공적으로 구축·정착시켜 MR 처리 속도(주간)가 1.2건 → 9~15건대로 오르며 생산성이 크게 증대되고, 스킬을 단계적으로 설계해 붙인 뒤로는 코드 품질도 함께 좋아지며 커밋 티켓 추적률 9% → 78%·AI 커밋 완결률 0% → 88%로 누락 사례가 뚜렷이 감소",
   },
   {
     id: "audio-session",
