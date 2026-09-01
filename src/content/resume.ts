@@ -74,12 +74,17 @@ export const career: CareerItem[] = [
   },
 ];
 
+export type ProcessFlow = {
+  rows: { label: string; steps: string[]; highlightStep?: string; loopBack?: boolean }[];
+};
+
 export type ProblemCase = {
   id: string;
   title: string;
   problem: string;
   solution: string;
   result: string;
+  process?: ProcessFlow;
 };
 
 export const problemSolving: ProblemCase[] = [
@@ -91,6 +96,36 @@ export const problemSolving: ProblemCase[] = [
       "온보딩·홈·리포트·MY·HFF·루틴·NPS 등 주요 플로우를 19개 spec·약 303개 케이스로 구성하고, 실패 케이스를 사용자 플로우·Swagger 스펙과 대조 검증, Notion에 시나리오 상태·수정 이력을 Jira와 연동해 관리",
     result:
       "남은 오류는 백엔드와 협업해 해결하고, 로컬 및 Mobile Chrome/Safari 환경에서 반복 실행 가능한 회귀 검증 체계로 운영",
+    process: {
+      rows: [
+        {
+          label: "E2E 시나리오 구현",
+          steps: [
+            "AI 스펙 초안 생성",
+            "사용자 플로우·Swagger 대조 검증",
+            "Playwright 코드 작성",
+            "테스트 실행",
+            "Notion 상태 갱신 (Jira 연동)",
+          ],
+        },
+        {
+          label: "개발 워크플로우",
+          steps: ["PRD", "Plan", "검토", "Build", "E2E 자체검증", "MR"],
+          highlightStep: "E2E 자체검증",
+        },
+        {
+          label: "회귀 피드백 루프",
+          steps: [
+            "Test",
+            "Flaky 발생",
+            "AI 재검수",
+            "지속 실패 시 원인 후보 파악 (AI)",
+            "회귀 원인 수정",
+          ],
+          loopBack: true,
+        },
+      ],
+    },
   },
   {
     id: "navigation",

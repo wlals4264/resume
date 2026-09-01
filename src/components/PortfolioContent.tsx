@@ -13,6 +13,98 @@ function CaseField({ label, text }: { label: string; text: string }) {
   );
 }
 
+// 5개 스텝을 상단 3개(왼→오) · 하단 2개(오→왼)로 배치하고,
+// 마지막 스텝에서 첫 스텝으로 되돌아가는 화살표로 순환 구조를 표현한다.
+function LoopDiagram({ steps }: { steps: string[] }) {
+  const boxW = 138;
+  const boxH = 34;
+  const hGap = 24;
+  const vGap = 28;
+  const col = [0, boxW + hGap, 2 * (boxW + hGap)];
+  const row = [0, boxH + vGap];
+  const width = col[2] + boxW;
+  const height = row[1] + boxH;
+
+  const nodes = [
+    { x: col[0], y: row[0], label: steps[0] },
+    { x: col[1], y: row[0], label: steps[1] },
+    { x: col[2], y: row[0], label: steps[2] },
+    { x: col[2], y: row[1], label: steps[3] },
+    { x: col[1], y: row[1], label: steps[4] },
+  ];
+  const cx = (n: { x: number }) => n.x + boxW / 2;
+  const cy = (n: { y: number }) => n.y + boxH / 2;
+
+  const connectors = [
+    `M${nodes[0].x + boxW},${cy(nodes[0])} L${nodes[1].x},${cy(nodes[1])}`,
+    `M${nodes[1].x + boxW},${cy(nodes[1])} L${nodes[2].x},${cy(nodes[2])}`,
+    `M${cx(nodes[2])},${nodes[2].y + boxH} L${cx(nodes[3])},${nodes[3].y}`,
+    `M${nodes[3].x},${cy(nodes[3])} L${nodes[4].x + boxW},${cy(nodes[4])}`,
+    `M${nodes[4].x},${cy(nodes[4])} L${cx(nodes[0])},${cy(nodes[4])} L${cx(nodes[0])},${nodes[0].y + boxH}`,
+  ];
+
+  return (
+    <svg
+      viewBox={`0 0 ${width} ${height}`}
+      className="mt-2 mx-auto block"
+      style={{ width: "100%", maxWidth: width, height: "auto" }}
+      role="img"
+      aria-label="회귀 피드백 루프 다이어그램"
+    >
+      <defs>
+        <marker
+          id="loop-arrow"
+          viewBox="0 0 10 10"
+          refX="8"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse"
+        >
+          <path d="M0,0 L10,5 L0,10 Z" fill="#9ca3af" />
+        </marker>
+      </defs>
+
+      {connectors.map((d, i) => (
+        <path
+          key={i}
+          d={d}
+          stroke="#d1d5db"
+          strokeWidth={1.5}
+          fill="none"
+          markerEnd="url(#loop-arrow)"
+        />
+      ))}
+
+      {nodes.map((n, i) => (
+        <g key={i}>
+          <rect x={n.x} y={n.y} width={boxW} height={boxH} rx={8} fill="#fafafa" stroke="#e5e7eb" />
+          <foreignObject x={n.x} y={n.y} width={boxW} height={boxH}>
+            <div
+              {...{ xmlns: "http://www.w3.org/1999/xhtml" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                fontSize: "9.5px",
+                fontWeight: 600,
+                color: "#374151",
+                padding: "0 6px",
+                lineHeight: 1.25,
+              }}
+            >
+              {n.label}
+            </div>
+          </foreignObject>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 export default function PortfolioContent() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-24">
@@ -46,6 +138,39 @@ export default function PortfolioContent() {
               <CaseField label="문제" text={item.problem} />
               <CaseField label="해결" text={item.solution} />
               <CaseField label="결과" text={item.result} />
+              {item.process && (
+                <div className="mt-4 space-y-3">
+                  {item.process.rows.map((row) => (
+                    <div key={row.label}>
+                      <p className="text-[11px] font-bold uppercase tracking-wide text-gray-400">
+                        {row.label}
+                      </p>
+                      {row.loopBack ? (
+                        <LoopDiagram steps={row.steps} />
+                      ) : (
+                        <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                          {row.steps.map((step, i) => (
+                            <div key={`${step}-${i}`} className="flex items-center gap-1.5">
+                              <span
+                                className={`rounded-lg border px-2.5 py-1.5 text-[11px] font-semibold ${
+                                  step === row.highlightStep
+                                    ? "border-accent bg-accent/10 text-accent"
+                                    : "border-gray-200 bg-surface text-gray-700"
+                                }`}
+                              >
+                                {step}
+                              </span>
+                              {i < row.steps.length - 1 && (
+                                <span className="text-[11px] text-gray-300">→</span>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
