@@ -224,6 +224,8 @@ export const projects: ProjectItem[] = [
     ],
     links: [
       { label: "GitHub", url: "https://github.com/OOOTTT-dev/app" },
+      { label: "App Store", url: "https://apps.apple.com/kr/app/ooottt/id6774486889" },
+      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.ooottt.app" },
     ],
   },
   {
