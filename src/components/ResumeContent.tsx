@@ -33,17 +33,15 @@ export default function ResumeContent() {
             </a>
           </div>
         </div>
-        <div className="h-44 w-[132px] shrink-0 rounded-2xl bg-white p-2 ring-1 ring-gray-200">
-          <Image
-            src="/images/profile.jpg"
-            alt={profile.name}
-            width={120}
-            height={160}
-            quality={95}
-            priority
-            className="h-full w-full rounded-lg object-contain"
-          />
-        </div>
+        <Image
+          src="/images/profile.jpg"
+          alt={profile.name}
+          width={78}
+          height={104}
+          quality={95}
+          priority
+          className="h-[104px] w-[78px] shrink-0 rounded-xl object-cover ring-1 ring-gray-200"
+        />
       </header>
 
       <Section title="About">
