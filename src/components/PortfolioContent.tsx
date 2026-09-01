@@ -1,5 +1,6 @@
 import AdminDashboardPreview from "@/components/AdminDashboardPreview";
 import { BeforeAfterCompare, PendingQueueDiagram } from "@/components/NavigationFlowDiagrams";
+import ProjectScreens from "@/components/ProjectScreens";
 import Section from "@/components/Section";
 import StepSyncCloseup from "@/components/StepSyncCloseup";
 import { problemSolving, profile, projects } from "@/content/resume";
@@ -222,6 +223,9 @@ export default function PortfolioContent() {
                   </li>
                 ))}
               </ul>
+              {project.name === "OOOTTT" && (
+                <ProjectScreens basePath="/images/portfolio/ooottt" count={5} alt="OOOTTT 화면" />
+              )}
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.links.map((link) => (
                   <a

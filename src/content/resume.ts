@@ -236,7 +236,10 @@ export const projects: ProjectItem[] = [
       "React·TypeScript 기반으로 UI와 핵심 기능을 개발하고, TanStack Query로 서버 상태를 관리",
       "STOMP 기반 실시간 양방향 채팅을 구현하고, Recoil로 클라이언트 상태를, Tailwind CSS로 UI 스타일링을 구성",
     ],
-    links: [{ label: "GitHub", url: "https://github.com/Team-momo-front/momo-front" }],
+    links: [
+      { label: "GitHub", url: "https://github.com/Team-momo-front/momo-front" },
+      { label: "Demo", url: "https://youtu.be/d-O7LfYi7po" },
+    ],
   },
   {
     name: "OlaOla",
