@@ -211,13 +211,19 @@ export const education = [
 export const training = [
   {
     name: "제로베이스캠프 · 프론트엔드 개발 과정",
-    period: "2024.03 ~ 2024.12 수료 (과정 중 유예)",
+    period: "2024.03 ~ 2024.12 수료",
     detail: "제로베이스에서 진행하는 프론트엔드 개발자 양성 교육 과정 수료",
   },
 ];
 
+export const certifications = [
+  { name: "컴퓨터활용능력 2급", date: "2018.09", status: "최종합격", issuer: "대한상공회의소" },
+  { name: "워드프로세서 1급", date: "2006.05", status: "최종합격", issuer: "대한상공회의소" },
+  { name: "그래픽기술자격(GTQ) 1급", date: "2021.04", status: "최종합격", issuer: "한국생산성본부(KPC)" },
+];
+
 export const links = [
-  { label: "Portfolio (이전)", value: profile.oldPortfolioHandle, url: profile.oldPortfolio },
+  { label: "Portfolio Site", value: profile.oldPortfolioHandle, url: profile.oldPortfolio },
   { label: "Blog", value: profile.blogHandle, url: profile.blog },
   { label: "GitHub", value: profile.githubHandle, url: profile.github },
 ];

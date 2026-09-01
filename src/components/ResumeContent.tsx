@@ -2,6 +2,7 @@ import Image from "next/image";
 import Section from "@/components/Section";
 import {
   career,
+  certifications,
   education,
   links,
   profile,
@@ -126,6 +127,22 @@ export default function ResumeContent() {
                 <span className="text-[12px] text-gray-400">{item.period}</span>
               </div>
               <p className="mt-1 text-[13px] text-gray-400">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Certification">
+        <div className="space-y-5">
+          {certifications.map((item) => (
+            <div key={item.name} className="break-inside-avoid-page">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="text-[15px] font-bold text-gray-900">{item.name}</h3>
+                <span className="text-[12px] text-gray-400">{item.date}</span>
+              </div>
+              <p className="mt-1 text-[13px] text-gray-400">
+                {item.status} · {item.issuer}
+              </p>
             </div>
           ))}
         </div>
