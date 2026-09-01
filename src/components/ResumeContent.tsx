@@ -89,27 +89,7 @@ export default function ResumeContent() {
               </div>
               <p className="mt-1 text-[13px] font-medium text-accent">{item.role}</p>
               <p className="mt-1.5 text-[13px] text-gray-500">{item.description}</p>
-              <ul className="mt-3 space-y-1.5">
-                {item.bullets.map((bullet, i) => (
-                  <li key={i} className="flex gap-2 text-[14px] leading-[1.8] text-gray-700">
-                    <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-accent/40" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-              {item.highlight && (
-                <div className="mt-4 rounded-2xl border border-gray-200 bg-surface p-5 break-inside-avoid-page">
-                  <p className="text-[13px] font-bold text-gray-900">{item.highlight.title}</p>
-                  <ul className="mt-2.5 space-y-1.5">
-                    {item.highlight.bullets.map((bullet, i) => (
-                      <li key={i} className="flex gap-2 text-[13px] leading-[1.7] text-gray-600">
-                        <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-accent/40" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <p className="mt-3 text-[14px] leading-[1.8] text-gray-700">{item.summary}</p>
             </div>
           ))}
         </div>

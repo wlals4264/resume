@@ -25,19 +25,13 @@ export const skills: { category: string; items: string[] }[] = [
   { category: "Quality / Analytics", items: ["Playwright", "GA4"] },
 ];
 
-export type CareerHighlight = {
-  title: string;
-  bullets: string[];
-};
-
 export type CareerItem = {
   company: string;
   role: string;
   period: string;
   periodDetail?: string;
   description: string;
-  bullets: string[];
-  highlight?: CareerHighlight;
+  summary: string;
 };
 
 export const career: CareerItem[] = [
@@ -47,19 +41,8 @@ export const career: CareerItem[] = [
     period: "2025.08 ~ 재직중",
     periodDetail: "1년 1개월",
     description: "수면 헬스케어 B2C 서비스 · Web(Next.js) / Hybrid App(RN → Flutter) / Admin(React)",
-    bullets: [
-      "Next.js 15 App Router 기반 WebView 서비스에서 수면 분석 리포트·일기 작성 및 공유하기·건기식 복용 일정 체크·온보딩 등 주요 사용자 기능을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축",
-      "RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·백그라운드 오디오 재생·HealthKit·권한 요청 등 핵심 Native 기능 구현을 iOS·Android 양쪽 대응으로 주도하고, 운영 중인 React Native 앱 코드도 함께 유지보수",
-      "Vite·React 19 기반 운영 Admin에서 CMS·유저·쿠폰·오류 관리 화면과, GA Data API·ECharts 기반 통계 대시보드를 10개 Query 도메인 표준화 구조로 구축",
-    ],
-    highlight: {
-      title: "RN → Flutter 전환 — 핵심 Native 기능 구현 주도",
-      bullets: [
-        "React Native로 운영 중인 서비스의 차기 버전을 Flutter로 개발하며, MVP 초기 구축부터 위 핵심 Native 기능 구현을 담당",
-        "RN 앱 유지보수를 통해 쌓은 프로덕션 동작 이해를 바탕으로, Flutter 전환 버전에 필요한 Web-Native 연동을 설계",
-        "Next.js SPA와 Native 사이에서 발생하는 navigation·lifecycle·권한·Health 데이터 연동 이슈를 Web/Flutter 양쪽에서 대응",
-      ],
-    },
+    summary:
+      "Next.js 15 App Router 기반 WebView 서비스에서 수면 분석 리포트·일기 작성 및 공유하기·건기식 복용 일정 체크·온보딩 등 주요 사용자 기능을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축했습니다. RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·백그라운드 오디오 재생·HealthKit·권한 요청 등 핵심 Native 기능 구현을 iOS·Android 양쪽 대응으로 주도하고, 운영 중인 React Native 앱 코드도 함께 유지보수하고 있습니다. Vite·React 19 기반 운영 Admin에서는 CMS·유저·쿠폰·오류 관리 화면과 GA Data API·ECharts 기반 통계 대시보드를 10개 Query 도메인 표준화 구조로 구축했습니다.",
   },
   {
     company: "은강음악학원",
@@ -67,12 +50,8 @@ export const career: CareerItem[] = [
     period: "2021.04 ~ 2024.08",
     periodDetail: "3년 4개월",
     description: "사설 음악학원 · 담임제 피아노 수업 및 입시 지도",
-    bullets: [
-      "담임제로 피아노 개인 수업을 진행하며 학생별 진도와 실기 역량을 관리",
-      "고등부 작곡 입시반을 맡아 이론·실기 지도로 입시를 준비",
-      "특강 및 행사(연주회 진행, 콩쿨 참가반 운영)를 기획하고 운영",
-      "학부모 응대 및 상담을 진행",
-    ],
+    summary:
+      "담임제로 피아노 개인 수업을 진행하며 학생별 진도와 실기 역량을 관리했고, 고등부 작곡 입시반을 맡아 이론·실기 지도로 입시를 준비시켰습니다. 특강 및 행사(연주회 진행, 콩쿨 참가반 운영)를 기획·운영하고, 학부모 응대 및 상담을 진행했습니다.",
   },
 ];
 
