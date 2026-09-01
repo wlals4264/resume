@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["puppeteer", "puppeteer-core", "@sparticuz/chromium"],
   outputFileTracingIncludes: {
     "/api/pdf": ["./node_modules/@sparticuz/chromium/bin/**/*"],
+    "/api/portfolio-pdf": ["./node_modules/@sparticuz/chromium/bin/**/*"],
   },
 };
 

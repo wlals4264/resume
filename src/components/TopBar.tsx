@@ -12,7 +12,11 @@ const tabs = [
 export default function TopBar() {
   const pathname = usePathname();
 
-  if (pathname === "/print") return null;
+  if (pathname === "/print" || pathname === "/portfolio/print") return null;
+
+  const isPortfolio = pathname === "/portfolio";
+  const pdfHref = isPortfolio ? "/api/portfolio-pdf" : "/api/pdf";
+  const pdfFilename = isPortfolio ? `포트폴리오_${profile.name}.pdf` : `이력서_${profile.name}.pdf`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-xl">
@@ -36,8 +40,8 @@ export default function TopBar() {
           })}
         </nav>
         <a
-          href="/api/pdf"
-          download={`이력서_${profile.name}.pdf`}
+          href={pdfHref}
+          download={pdfFilename}
           className="flex items-center gap-1.5 rounded-lg bg-accent px-4 py-1.5 text-[12px] font-bold text-white transition-colors hover:bg-accent/85"
         >
           <svg
