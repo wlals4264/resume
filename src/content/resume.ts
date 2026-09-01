@@ -27,13 +27,18 @@ export const skills: { category: string; items: string[] }[] = [
   { category: "Quality / Analytics", items: ["Playwright", "GA4"] },
 ];
 
+export type CareerSection = {
+  title: string;
+  text: string;
+};
+
 export type CareerItem = {
   company: string;
   role: string;
   period: string;
   periodDetail?: string;
   description: string;
-  summary: string;
+  summary: string | CareerSection[];
 };
 
 export const career: CareerItem[] = [
@@ -43,8 +48,20 @@ export const career: CareerItem[] = [
     period: "2025.08 ~ 재직중",
     periodDetail: "1년 1개월",
     description: "수면 헬스케어 B2C 서비스 · Web(Next.js) / Hybrid App(RN → Flutter) / Admin(React)",
-    summary:
-      "Next.js 15 App Router 기반 WebView 서비스에서 수면 분석 리포트·일기 작성 및 공유하기·건기식 복용 일정 체크·온보딩 등 주요 사용자 기능을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축했습니다. RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·백그라운드 오디오 재생·HealthKit·권한 요청 등 핵심 Native 기능 구현을 iOS·Android 양쪽 대응으로 주도하고, 운영 중인 React Native 앱 코드도 함께 유지보수하고 있습니다. Vite·React 19 기반 운영 Admin에서는 CMS·유저·쿠폰·오류 관리 화면과 GA Data API·ECharts 기반 통계 대시보드를 10개 Query 도메인 표준화 구조로 구축했습니다.",
+    summary: [
+      {
+        title: "Web (Next.js)",
+        text: "Next.js 15 App Router 기반 WebView 서비스에서 수면 분석 리포트·일기 작성 및 공유하기·건기식 복용 일정 체크·온보딩 등 주요 사용자 기능을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축했습니다.",
+      },
+      {
+        title: "Hybrid App (RN → Flutter)",
+        text: "RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·백그라운드 오디오 재생·HealthKit·권한 요청 등 핵심 Native 기능 구현을 iOS·Android 양쪽 대응으로 주도하고, 운영 중인 React Native 앱 코드도 함께 유지보수하고 있습니다.",
+      },
+      {
+        title: "Admin (React)",
+        text: "Vite·React 19 기반 운영 Admin에서는 CMS·유저·쿠폰·오류 관리 화면과 GA Data API·ECharts 기반 통계 대시보드를 10개 Query 도메인 표준화 구조로 구축했습니다.",
+      },
+    ],
   },
   {
     company: "은강음악학원",
@@ -185,7 +202,7 @@ export const projects: ProjectItem[] = [
 export const education = [
   {
     school: "숙명여자대학교",
-    major: "작곡과 (복수전공 문화예술기획)",
+    major: "작곡과 (연계전공 문화예술기획)",
     period: "2014.03 ~ 2019.02",
     detail: "학사 졸업 · GPA 3.99 / 4.5",
   },
@@ -195,7 +212,7 @@ export const training = [
   {
     name: "제로베이스캠프 · 프론트엔드 개발 과정",
     period: "2024.03 ~ 2024.12 수료 (과정 중 유예)",
-    detail: "HTML/CSS/JavaScript, CS·자료구조, React, TypeScript 과정. 수료 후 팀과 2025.02까지 프로젝트 연장 진행",
+    detail: "제로베이스에서 진행하는 프론트엔드 개발자 양성 교육 과정 수료",
   },
 ];
 
