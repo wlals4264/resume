@@ -36,11 +36,11 @@ export default function ResumeContent() {
         <Image
           src="/images/profile.jpg"
           alt={profile.name}
-          width={128}
-          height={128}
+          width={120}
+          height={160}
           quality={95}
           priority
-          className="h-32 w-32 shrink-0 rounded-2xl object-cover ring-1 ring-gray-200"
+          className="h-40 w-[120px] shrink-0 rounded-2xl object-cover ring-1 ring-gray-200"
         />
       </header>
 
