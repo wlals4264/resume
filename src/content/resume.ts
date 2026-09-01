@@ -141,6 +141,31 @@ export const problemSolving: ProblemCase[] = [
     solution:
       "자동 pageview를 끄고 route 변경 기반 page_view와 sign_up·banner_click·share·error_log 등 이벤트를 직접 설계해 수집",
     result: "Admin에서 GA Data API의 stream/event/custom dimension 필터로 DAU·이벤트·오류 로그 등 운영 리포트로 연결해 시각화",
+    process: {
+      rows: [
+        {
+          label: "Route 변경 추적 (GaProvider)",
+          steps: [
+            "pathname·searchParams 변경 감지",
+            "pageview(url, prevPage, userId)",
+            "gtag('event', 'page_view')",
+          ],
+        },
+        {
+          label: "커스텀 이벤트 (sendEvent)",
+          steps: ["sign_up / banner_click / share / error_log", "gtag('event', action, params)"],
+        },
+        {
+          label: "Admin 조회 (GA Data API)",
+          steps: [
+            "runReport (dimensions·metrics)",
+            "stream 필터 (prod·dev·ios·android)",
+            "DAU·이벤트·오류 로그 대시보드",
+          ],
+          highlightStep: "DAU·이벤트·오류 로그 대시보드",
+        },
+      ],
+    },
   },
   {
     id: "admin-query",
