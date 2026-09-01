@@ -11,29 +11,18 @@ export const profile = {
 };
 
 export const summary: string[] = [
-  "프론트엔드 개발자로서 Next.js, React 프레임워크 기반으로 B2C 웹 서비스를 개발하며, Hybrid App의 WebView 환경에서의 상태관리, 브릿지 설계를 통한 Native 연동까지 다룬 경험이 있습니다.",
-  "수면 헬스케어 서비스에서 사용자 기능 개발, Playwright E2E 테스트, GA4 기반 사용자 행동 분석, Admin 개발까지 프로덕트 개발부터 검증·운영까지 전체 라이프사이클을 경험했습니다. RN 기반으로 운영되고 있는 앱을 유지보수하며 파악한 플랫폼의 한계를 바탕으로, RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·HealthKit 등 핵심 Native 기능 구현을 주도하고 있습니다.",
-  "유저가 실제 사용하는 과정에서 발생하는 Web-Native 경계의 lifecycle·navigation·권한 등의 문제의 원인을 파악하고 해결해왔습니다. 사내 AI 도입이 활성화됨에 따라 Cursor Rules/Skills와 E2E 시나리오로 AI Agent가 프로젝트 규칙과 검증 절차를 따르도록 개발 프로세스를 구조화하고 있습니다.",
+  "코드 너머 사용자의 문제를 해결하는 방법을 고민하는 프론트엔드 개발자 김지민입니다.",
+  "Next.js·React·TypeScript 기반 B2C 웹 서비스를 개발하며, Hybrid App의 WebView 환경에서 상태 관리부터 Web-Native Bridge를 통한 Native 기능 연동까지 경험했습니다.",
+  "수면 헬스케어 서비스에서 사용자 기능 개발, Playwright E2E 테스트, GA4 기반 사용자 행동 분석, Admin 개발까지 프로덕트의 개발·검증·운영 전반을 경험했습니다. 현재는 기존 React Native 앱을 유지보수하며 얻은 경험을 바탕으로 RN → Flutter 마이그레이션 프로젝트에서 WebView, 소셜 로그인, 수면 측정 SDK, HealthKit 등 핵심 기능 구현을 담당하고 있습니다.",
+  "특히 실제 사용자 환경에서 발생하는 Web-Native 경계의 lifecycle, navigation, 권한, 이벤트 전달 문제의 원인을 추적하고 해결해 왔습니다. 단순히 화면을 구현하는 것을 넘어, 사용자의 문제를 발견하고 서비스의 개선까지 연결할 수 있는 개발자를 지향합니다.",
 ];
 
 export const skills: { category: string; items: string[] }[] = [
-  { category: "Core", items: ["TypeScript", "JavaScript", "React", "Next.js", "HTML/CSS"] },
-  { category: "State / Data", items: ["TanStack Query", "Zustand", "Recoil", "React Hook Form"] },
-  { category: "UI", items: ["Styled-components", "Tailwind CSS", "DaisyUI", "ECharts"] },
-  {
-    category: "Mobile / Hybrid",
-    items: [
-      "Flutter",
-      "Dart",
-      "BLoC",
-      "React Native",
-      "WebView",
-      "Native Bridge",
-      "HealthKit / Health Connect",
-    ],
-  },
-  { category: "Quality / Analytics", items: ["Playwright", "Vitest", "GA4", "Sentry", "Kakao Pixel"] },
-  { category: "Workflow", items: ["Git", "GitLab", "Jira", "Cursor", "MCP", "Figma", "Notion"] },
+  { category: "Core", items: ["TypeScript", "JavaScript", "React", "Next.js"] },
+  { category: "State / Data", items: ["TanStack Query", "Zustand"] },
+  { category: "UI", items: ["Styled-components", "Tailwind CSS", "ECharts"] },
+  { category: "Mobile / Hybrid", items: ["Flutter", "React Native"] },
+  { category: "Quality / Analytics", items: ["Playwright", "GA4"] },
 ];
 
 export type CareerHighlight = {
@@ -71,6 +60,19 @@ export const career: CareerItem[] = [
         "Next.js SPA와 Native 사이에서 발생하는 navigation·lifecycle·권한·Health 데이터 연동 이슈를 Web/Flutter 양쪽에서 대응",
       ],
     },
+  },
+  {
+    company: "은강음악학원",
+    role: "피아노 강사 · 고등부 작곡 입시 지도",
+    period: "2021.04 ~ 2024.08",
+    periodDetail: "3년 4개월",
+    description: "사설 음악학원 · 담임제 피아노 수업 및 입시 지도",
+    bullets: [
+      "담임제로 피아노 개인 수업을 진행하며 학생별 진도와 실기 역량을 관리",
+      "고등부 작곡 입시반을 맡아 이론·실기 지도로 입시를 준비",
+      "특강 및 행사(연주회 진행, 콩쿨 참가반 운영)를 기획하고 운영",
+      "학부모 응대 및 상담을 진행",
+    ],
   },
 ];
 

@@ -26,7 +26,7 @@ export async function GET(request: Request) {
   try {
     const page = await browser.newPage();
     await page.emulateMediaType("screen");
-    await page.setViewport({ width: 794, height: 1123 });
+    await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 2 });
     await page.goto(`${origin}/print`, { waitUntil: "networkidle0" });
     await page.evaluate(() => document.fonts.ready);
 
