@@ -276,12 +276,6 @@ export const training = [
   },
 ];
 
-export const certifications = [
-  { name: "컴퓨터활용능력 2급", date: "2018.09", status: "최종합격", issuer: "대한상공회의소" },
-  { name: "워드프로세서 1급", date: "2006.05", status: "최종합격", issuer: "대한상공회의소" },
-  { name: "그래픽기술자격(GTQ) 1급", date: "2021.04", status: "최종합격", issuer: "한국생산성본부(KPC)" },
-];
-
 export const links = [
   { label: "Portfolio Site", value: profile.oldPortfolioHandle, url: profile.oldPortfolio },
   { label: "Blog", value: profile.blogHandle, url: profile.blog },
