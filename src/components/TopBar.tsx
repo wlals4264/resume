@@ -12,6 +12,8 @@ const tabs = [
 export default function TopBar() {
   const pathname = usePathname();
 
+  if (pathname === "/print") return null;
+
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-xl">
       <div className="mx-auto flex h-12 max-w-2xl items-center justify-between px-6">
