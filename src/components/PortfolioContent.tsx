@@ -1,3 +1,4 @@
+import NavigationRaceDemo from "@/components/NavigationRaceDemo";
 import Section from "@/components/Section";
 import { problemSolving, profile, projects } from "@/content/resume";
 
@@ -138,6 +139,7 @@ export default function PortfolioContent() {
               <CaseField label="문제" text={item.problem} />
               <CaseField label="해결" text={item.solution} />
               <CaseField label="결과" text={item.result} />
+              {item.id === "navigation" && <NavigationRaceDemo />}
               {item.process && (
                 <div className="mt-4 space-y-3">
                   {item.process.rows.map((row) => (
