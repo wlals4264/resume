@@ -14,7 +14,7 @@ export const profile = {
 
 export const summary: string[] = [
   "코드 너머 사용자의 문제를 해결하는 방법을 고민하는 프론트엔드 개발자 김지민입니다.",
-  "Next.js·React·TypeScript 기반 B2C 웹 서비스를 개발하며, Hybrid App의 WebView 환경에서 상태 관리부터 Web-Native Bridge를 통한 Native 기능 연동까지 경험했습니다.",
+  "Next.js·React·TypeScript 기반 B2C 웹 서비스를 개발하며, Flutter Hybrid App의 WebView 환경에서 상태 관리부터 Web-Native Bridge를 통한 Native 기능 연동까지 경험했습니다.",
   "수면 헬스케어 서비스에서 사용자 기능 개발, Playwright E2E 테스트, GA4 기반 사용자 행동 분석, Admin 개발까지 프로덕트의 개발·검증·운영 전반을 경험했습니다. 현재는 기존 React Native 앱을 유지보수하며 얻은 경험을 바탕으로 RN → Flutter 마이그레이션 프로젝트에서 WebView, 소셜 로그인, 수면 측정 SDK, HealthKit 등 핵심 기능 구현을 담당하고 있습니다.",
   "특히 실제 사용자 환경에서 발생하는 Web-Native 경계의 lifecycle, navigation, 권한, 이벤트 전달 문제의 원인을 추적하고 해결해 왔습니다. 단순히 화면을 구현하는 것을 넘어, 사용자의 문제를 발견하고 서비스의 개선까지 연결할 수 있는 개발자를 지향합니다.",
 ];
