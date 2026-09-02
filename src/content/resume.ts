@@ -164,14 +164,6 @@ export const problemSolving: ProblemCase[] = [
     },
   },
   {
-    id: "admin-query",
-    title: "React Admin API·서버 상태 관리 구조 표준화",
-    problem: "도메인마다 fetch·인증·에러 처리와 query key 관리 방식이 제각각이라 유지보수와 재사용이 어려움",
-    solution:
-      "commFetch + TanStack Query + query-key-factory 구조로 표준화해 10개 Query 도메인에 공통 적용하고, access token 갱신 시 refreshPromise를 공유",
-    result: "병렬 요청의 중복 refresh를 방지해 인증 처리를 안정화",
-  },
-  {
     id: "healthkit",
     title: "iOS·Android 걸음 수 동기화 정합성 개선",
     problem:
@@ -179,6 +171,14 @@ export const problemSolving: ProblemCase[] = [
     solution:
       "Android의 버킷 라벨링 로직을 iOS(Flutter)에도 동일하게 구현해 partial 구간 누락을 방지하고, 최근 7일 걸음 수 유무로 권한 상태를 추론. 표시(기기 총합)와 서버 저장(버킷 raw)의 책임을 분리해 초기 도입했던 diff 보정 로직을 제거",
     result: "iOS·Android 걸음 수가 버킷 누락 없이 동기화되고, 기상 알람 시 최대 13일 백필까지 안정적으로 처리되는 동기화 체계로 운영",
+  },
+  {
+    id: "admin-query",
+    title: "React Admin API·서버 상태 관리 구조 표준화",
+    problem: "도메인마다 fetch·인증·에러 처리와 query key 관리 방식이 제각각이라 유지보수와 재사용이 어려움",
+    solution:
+      "commFetch + TanStack Query + query-key-factory 구조로 표준화해 10개 Query 도메인에 공통 적용하고, access token 갱신 시 refreshPromise를 공유",
+    result: "병렬 요청의 중복 refresh를 방지해 인증 처리를 안정화",
   },
   {
     id: "ai-workflow",
