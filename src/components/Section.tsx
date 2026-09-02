@@ -8,7 +8,7 @@ export default function Section({
   children: ReactNode;
 }) {
   return (
-    <section className="border-t border-gray-100 py-10">
+    <section className="border-t border-gray-100 py-8">
       <h2 className="mb-6 break-after-avoid-page text-[12px] font-bold uppercase tracking-[0.15em] text-accent">
         {title}
       </h2>

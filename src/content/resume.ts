@@ -13,10 +13,9 @@ export const profile = {
 };
 
 export const summary: string[] = [
-  "코드 너머 사용자의 문제를 해결하는 방법을 고민하는 프론트엔드 개발자 김지민입니다.",
   "Next.js·React·TypeScript 기반 B2C 웹 서비스를 개발하며, Flutter Hybrid App의 WebView 환경에서 상태 관리부터 Web-Native Bridge를 통한 Native 기능 연동까지 경험했습니다.",
-  "수면 헬스케어 서비스에서 사용자 기능 개발, Playwright E2E 테스트, GA4 기반 사용자 행동 분석, Admin 개발까지 프로덕트의 개발·검증·운영 전반을 경험했습니다. 현재는 기존 React Native 앱을 유지보수하며 얻은 경험을 바탕으로 RN → Flutter 마이그레이션 프로젝트에서 WebView, 소셜 로그인, 수면 측정 SDK, HealthKit 등 핵심 기능 구현을 담당하고 있습니다.",
-  "특히 실제 사용자 환경에서 발생하는 Web-Native 경계의 lifecycle, navigation, 권한, 이벤트 전달 문제의 원인을 추적하고 해결해 왔습니다. 단순히 화면을 구현하는 것을 넘어, 사용자의 문제를 발견하고 서비스의 개선까지 연결할 수 있는 개발자를 지향합니다.",
+  "수면 헬스케어 스타트업에서 신규 기능 개발부터 레거시 시스템 재구축, 기술 의사결정까지 프로덕트 전반을 폭넓게 경험했습니다. Figma 퍼블리싱 자동화, Admin UI 디자인, Cursor 기반 개발 워크플로우까지 AI를 적극 활용해 생산성과 품질을 함께 끌어올리며, 그 결과를 팀에 공유해 다음 결정으로 연결하는 과정을 중요하게 생각합니다.",
+  "코드 너머 사용자의 문제를 해결하는 방법을 고민하며, 단순히 화면을 구현하는 것을 넘어 사용자의 문제를 발견하고 서비스의 개선까지 연결할 수 있는 개발자를 지향합니다.",
 ];
 
 export const skills: { category: string; items: string[] }[] = [
@@ -52,15 +51,15 @@ export const career: CareerItem[] = [
     summary: [
       {
         title: "Web (Next.js)",
-        text: "Next.js 15 App Router 기반 WebView 서비스에서 꿀잠닥터 주요 기능(수면 분석 리포트·일기 작성 및 공유하기·온보딩 등)을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축했습니다.",
+        text: "Next.js 15 App Router 기반 WebView 서비스의 꿀잠닥터 주요 기능(수면 분석 리포트·일기 작성 및 공유하기·온보딩 등)을 기획 단계부터 참여해 개발했습니다. Figma 디자인을 AI로 퍼블리싱 자동화하고 Storybook·Vitest 기반 디자인 시스템·테스트 체계를 구축했으며, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)도 함께 운영했습니다.",
       },
       {
         title: "Hybrid App (RN → Flutter)",
-        text: "RN → Flutter 전환 프로젝트에서 WebView·소셜 로그인·수면 측정 SDK 연동·백그라운드 오디오 재생·HealthKit·권한 요청 등 핵심 Native 기능 구현을 iOS·Android 양쪽 대응으로 주도하고, 운영 중인 React Native 앱 코드도 함께 유지보수하고 있습니다.",
+        text: "RN 유지 시의 성능·메모리 관리·3rd party 의존성 리스크를 검토해 Flutter 전환 전략 수립에 참여하고, 꿀잠닥터 핵심 Native 기능(WebView·소셜 로그인·수면 측정 SDK 연동·백그라운드 오디오 재생·HealthKit·권한 요청 등) 구현을 주도하였습니다. 운영 중인 React Native 앱 코드도 함께 유지보수하고 있습니다.",
       },
       {
         title: "Admin (React)",
-        text: "Vite·React 19 기반 운영 Admin에서는 CMS·유저·쿠폰·오류 관리 화면과 GA Data API·ECharts 기반 통계 대시보드를 10개 Query 도메인 표준화 구조로 구축했습니다.",
+        text: "기존 임시로 구축되어 있던 문서화되지 않은 레거시 Admin을 재구축하며 폴더 구조·API 통신 규약을 새로 정의하고, AI를 활용해 UI 디자인까지 직접 적용했습니다. CMS·유저·쿠폰·오류 관리 화면과 GA Data API·ECharts 기반 통계 대시보드를 10개 Query 도메인 표준화 구조로 구축하고, Jira Sprint API를 연동해 팀 보고 체계를 자동화했습니다.",
       },
     ],
   },
@@ -234,7 +233,7 @@ export const problemSolving: ProblemCase[] = [
     group: "achievement",
     title: "Admin 재구축 및 API·서버 상태 관리 구조 표준화",
     problem:
-      "레거시 Admin은 인턴이 급하게 만든 구조로 문서화가 없어 유지보수·재사용이 어려웠고, 도메인마다 fetch·인증·에러 처리와 query key 관리 방식도 제각각이라 확장이 힘들었음. 별도 디자인 리소스도 없어 화면 UI까지 직접 구성해야 하는 상황이었음",
+      "레거시 Admin은 기존 임시로 구축되어 있던 구조로 문서화가 없어 유지보수·재사용이 어려웠고, 도메인마다 fetch·인증·에러 처리와 query key 관리 방식도 제각각이라 확장이 힘들었음. 별도 디자인 리소스도 없어 화면 UI까지 직접 구성해야 하는 상황이었음",
     solution:
       "입사 후 Admin 재구축을 맡아 폴더 구조와 API 통신 규약을 새로 정의하고, commFetch + TanStack Query + query-key-factory 구조를 단계적으로 도입해 10개 Query 도메인에 공통 적용, access token 갱신 시 refreshPromise를 공유. 디자이너 리소스 없이 AI를 활용해 화면 UI 디자인까지 직접 적용",
     result: "병렬 요청의 중복 refresh를 방지해 인증 처리를 안정화하고, 문서화되지 않았던 구조를 표준 패턴으로 재정립",
