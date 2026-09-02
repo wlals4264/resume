@@ -51,7 +51,7 @@ export const career: CareerItem[] = [
     summary: [
       {
         title: "Web (Next.js)",
-        text: "Next.js 15 App Router 기반 WebView 서비스에서 수면 분석 리포트·일기 작성 및 공유하기·건기식 복용 일정 체크·온보딩 등 주요 사용자 기능을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축했습니다.",
+        text: "Next.js 15 App Router 기반 WebView 서비스에서 수면 분석 리포트·일기 작성 및 공유하기·온보딩 등 주요 사용자 기능을 백엔드와 협업해 개발·개선하고, Playwright 기반 E2E 회귀 검증 체계(19개 spec·약 303개 케이스)를 구축했습니다.",
       },
       {
         title: "Hybrid App (RN → Flutter)",
