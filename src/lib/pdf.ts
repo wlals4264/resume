@@ -27,6 +27,35 @@ export async function renderPagePdf(origin: string, path: string) {
     await page.goto(`${origin}${path}`, { waitUntil: "networkidle0" });
     await page.evaluate(() => document.fonts.ready);
 
+    // Trigger native lazy-loaded <img> elements (e.g. next/image) that sit
+    // below the initial viewport and would otherwise render blank in the PDF.
+    await page.evaluate(async () => {
+      await new Promise<void>((resolve) => {
+        let scrolled = 0;
+        const step = 600;
+        const timer = setInterval(() => {
+          window.scrollBy(0, step);
+          scrolled += step;
+          if (scrolled >= document.body.scrollHeight) {
+            clearInterval(timer);
+            window.scrollTo(0, 0);
+            resolve();
+          }
+        }, 30);
+      });
+      const images = Array.from(document.images);
+      await Promise.all(
+        images.map((img) =>
+          img.complete
+            ? Promise.resolve()
+            : new Promise((resolve) => {
+                img.addEventListener("load", resolve, { once: true });
+                img.addEventListener("error", resolve, { once: true });
+              })
+        )
+      );
+    });
+
     return await page.pdf({
       format: "a4",
       printBackground: true,

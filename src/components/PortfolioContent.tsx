@@ -1,4 +1,5 @@
 import AdminDashboardPreview from "@/components/AdminDashboardPreview";
+import BlogPostCard from "@/components/BlogPostCard";
 import { BeforeAfterCompare, PendingQueueDiagram } from "@/components/NavigationFlowDiagrams";
 import ProjectScreens from "@/components/ProjectScreens";
 import Section from "@/components/Section";
@@ -225,6 +226,14 @@ export default function PortfolioContent() {
               </ul>
               {project.name === "OOOTTT" && (
                 <ProjectScreens basePath="/images/portfolio/ooottt" count={5} alt="OOOTTT 화면" />
+              )}
+              {project.name === "OlaOla" && (
+                <BlogPostCard
+                  title="[개인 프로젝트 - OlaOla] IndexedDB로 브라우저 환경에서 로컬 데이터베이스 구축하기"
+                  excerpt="백엔드 구현보다 프론트엔드 역량 강화에 집중하기 위해, Firebase 같은 서버 환경 대신 IndexedDB로 브라우저에서 직접 로컬 데이터베이스를 구축한 과정을 정리했습니다."
+                  date="2024.12.18"
+                  url="https://velog.io/@wlals4264/개인-프로젝트-OlaOla-IndexedDB로-브라우저-환경에서-로컬-데이터베이스-구축하기"
+                />
               )}
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.links.map((link) => (

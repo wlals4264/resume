@@ -256,6 +256,10 @@ export const projects: ProjectItem[] = [
     links: [
       { label: "GitHub", url: "https://github.com/wlals4264/olaola" },
       { label: "Live", url: "https://ola-ola-nine.vercel.app" },
+      {
+        label: "블로그",
+        url: "https://velog.io/@wlals4264/개인-프로젝트-OlaOla-IndexedDB로-브라우저-환경에서-로컬-데이터베이스-구축하기",
+      },
     ],
   },
 ];
