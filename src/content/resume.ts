@@ -210,11 +210,7 @@ export const problemSolving: ProblemCase[] = [
       rows: [
         {
           label: "Route 변경 추적",
-          steps: [
-            "pathname·searchParams 변경 감지",
-            "pageview(url, prevPage, userId)",
-            "gtag('event', 'page_view')",
-          ],
+          steps: ["pathname·searchParams 감지", "pageview(url, prevPage)", "gtag('page_view')"],
         },
         {
           label: "커스텀 이벤트",
@@ -355,7 +351,7 @@ export const resumeProjects: ResumeProject[] = [
   {
     name: "꿀잠닥터",
     role: "Frontend",
-    team: "회사",
+    team: "슬립포레스트",
     period: "2025.08 ~ 재직중",
     description: "수면 헬스케어 B2C 앱 신규 개발·고도화 · Web(Next.js) / Hybrid App(Flutter) / Admin(React)",
     highlights: problemSolving

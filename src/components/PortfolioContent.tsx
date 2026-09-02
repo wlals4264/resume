@@ -2,9 +2,13 @@ import AdminDashboardPreview from "@/components/AdminDashboardPreview";
 import BlogPostCard from "@/components/BlogPostCard";
 import { BeforeAfterCompare, PendingQueueDiagram } from "@/components/NavigationFlowDiagrams";
 import ProjectScreens from "@/components/ProjectScreens";
+import FunnelStatsPreview from "@/components/FunnelStatsPreview";
 import Section from "@/components/Section";
+import SprintDashboardPreview from "@/components/SprintDashboardPreview";
 import StepSyncCloseup from "@/components/StepSyncCloseup";
-import { problemSolving, profile, projects, type ProblemCase } from "@/content/resume";
+import { problemSolving, profile, projects, resumeProjects, type ProblemCase } from "@/content/resume";
+
+const kkuljam = resumeProjects.find((p) => p.name === "꿀잠닥터")!;
 
 function CaseField({ label, text }: { label: string; text: string }) {
   return (
@@ -20,7 +24,10 @@ function CaseField({ label, text }: { label: string; text: string }) {
 
 function ProblemCaseCard({ item, index }: { item: ProblemCase; index: number }) {
   return (
-    <div className="group rounded-2xl border border-gray-200 p-6 break-inside-avoid-page transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+    <div
+      id={item.id}
+      className="group scroll-mt-6 rounded-2xl border border-gray-200 p-6 break-inside-avoid-page transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
+    >
       <div className="mb-3 flex items-center gap-2">
         <span className="font-mono text-[12px] font-bold text-accent">
           {String(index + 1).padStart(2, "0")}
@@ -90,8 +97,14 @@ function ProblemCaseCard({ item, index }: { item: ProblemCase; index: number }) 
           ))}
         </div>
       )}
-      {item.id === "ga4" && <AdminDashboardPreview />}
+      {item.id === "ga4" && (
+        <>
+          <AdminDashboardPreview />
+          <FunnelStatsPreview />
+        </>
+      )}
       {item.id === "healthkit" && <StepSyncCloseup />}
+      {item.id === "admin-reporting-dashboard" && <SprintDashboardPreview />}
     </div>
   );
 }
@@ -191,7 +204,7 @@ function LoopDiagram({ steps }: { steps: string[] }) {
 export default function PortfolioContent() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-24">
-      <header className="pb-10 pt-16">
+      <header className="pb-6 pt-10">
         <p className="text-[13px] font-bold uppercase tracking-[0.15em] text-accent">Portfolio</p>
         <h1 className="mt-2 text-[32px] font-extrabold leading-[1.15] tracking-[-0.03em] text-gray-900 sm:text-[40px]">
           {profile.name}
@@ -202,22 +215,92 @@ export default function PortfolioContent() {
           <br />
           직접 진행한 개인&팀 프로젝트입니다.
         </p>
-      </header>
 
-      <Section title="Work & Impact">
-        <div className="space-y-6">
-          {problemSolving.map((item, i) => (
-            <ProblemCaseCard key={item.id} item={item} index={i} />
-          ))}
+        <div className="mt-4 rounded-xl border border-gray-200 p-3">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-gray-400">Index</p>
+
+          <a href={`#${kkuljam.name}`} className="mt-2 block text-[13px] font-bold text-gray-900 hover:text-accent">
+            {kkuljam.name}
+          </a>
+          <div className="mt-1.5 grid grid-cols-2 gap-x-6 gap-y-0.5 pl-3">
+            {problemSolving.map((item, i) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex items-baseline gap-1.5 text-[11px] text-gray-500 hover:text-accent"
+              >
+                <span className="font-mono text-[10px] font-bold text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="truncate">{item.title}</span>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-3 space-y-1 border-t border-gray-100 pt-2">
+            {projects.map((project) => (
+              <a
+                key={project.name}
+                href={`#${project.name}`}
+                className="block text-[13px] font-bold text-gray-900 hover:text-accent"
+              >
+                {project.name}
+              </a>
+            ))}
+          </div>
         </div>
-      </Section>
+      </header>
 
       <Section title="Projects">
         <div className="space-y-6">
+          <div
+            id={kkuljam.name}
+            className="group scroll-mt-6 rounded-2xl border border-gray-200 p-6 break-inside-avoid-page transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 className="text-[18px] font-extrabold leading-tight text-gray-900">
+                {kkuljam.name}
+                <span className="ml-2 text-[13px] font-medium text-accent">{kkuljam.role}</span>
+              </h3>
+              <span className="text-[12px] text-gray-400">{kkuljam.period}</span>
+            </div>
+            <p className="mt-1.5 text-[13px] text-gray-500">
+              {kkuljam.team} · {kkuljam.description}
+            </p>
+            <ProjectScreens basePath="/images/portfolio/kkuljam" count={5} alt="꿀잠닥터 화면" ext="jpg" />
+            {kkuljam.links && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {kkuljam.links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-3 py-1.5 text-[12px] font-semibold text-gray-600 transition-colors hover:border-accent hover:text-accent"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div>
+            <p className="mb-4 pl-1 text-[12px] font-bold uppercase tracking-wide text-gray-400">
+              Work & Impact
+            </p>
+            <div className="space-y-6 border-l-2 border-gray-100 pl-4">
+              {problemSolving.map((item, i) => (
+                <ProblemCaseCard key={item.id} item={item} index={i} />
+              ))}
+            </div>
+          </div>
+
           {projects.map((project) => (
             <div
               key={project.name}
-              className="group rounded-2xl border border-gray-200 p-6 break-inside-avoid-page transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
+              id={project.name}
+              className="group scroll-mt-6 rounded-2xl border border-gray-200 p-6 break-inside-avoid-page transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="text-[18px] font-extrabold leading-tight text-gray-900">

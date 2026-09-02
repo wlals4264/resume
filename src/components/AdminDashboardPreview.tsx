@@ -14,12 +14,12 @@ function StatCard({
 }) {
   return (
     <div
-      className={`rounded-xl border p-3 ${
+      className={`rounded-xl border p-2 ${
         highlight ? "border-accent/30 bg-accent/5" : "border-gray-200 bg-surface"
       }`}
     >
       <p className="text-[10px] font-semibold text-gray-500">{label}</p>
-      <p className="mt-1.5 flex items-baseline gap-1.5">
+      <p className="mt-1 flex items-baseline gap-1.5">
         <span className={`text-[18px] font-extrabold ${highlight ? "text-accent" : "text-gray-900"}`}>
           {value}
         </span>
@@ -32,7 +32,7 @@ function StatCard({
 // 실제 dauLineChartOption(useWeeklyDAUStats)처럼 마지막 구간(전일→오늘)만 점선으로 표시한다.
 function DauLineChart() {
   const width = 560;
-  const height = 130;
+  const height = 76;
   const padX = 24;
   const padY = 16;
   const max = Math.max(...dauSeries);
@@ -74,7 +74,7 @@ function DauLineChart() {
 
 export default function AdminDashboardPreview() {
   return (
-    <div className="mt-4 rounded-xl border border-gray-200 p-4">
+    <div className="mt-4 rounded-xl border border-gray-200 p-3">
       <div className="flex items-center justify-between">
         <p className="text-[11px] font-bold uppercase tracking-wide text-gray-400">
           Admin 대시보드 (실제 화면 기반)
@@ -88,7 +88,7 @@ export default function AdminDashboardPreview() {
         <StatCard label="오류 보고 현황" value="3" trend="0건 신규" />
       </div>
 
-      <p className="mt-3 text-[10px] font-semibold text-gray-500">지난 7일간 DAU</p>
+      <p className="mt-2 text-[10px] font-semibold text-gray-500">지난 7일간 DAU</p>
       <DauLineChart />
     </div>
   );
