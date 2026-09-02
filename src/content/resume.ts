@@ -24,7 +24,8 @@ export const skills: { category: string; items: string[] }[] = [
   { category: "State / Data", items: ["TanStack Query", "Zustand"] },
   { category: "UI", items: ["Styled-components", "Tailwind CSS", "ECharts"] },
   { category: "Mobile / Hybrid", items: ["Flutter", "React Native"] },
-  { category: "Quality / Analytics", items: ["Playwright", "GA4"] },
+  { category: "Quality / Analytics", items: ["Playwright", "GA4", "Sentry"] },
+  { category: "Workflow", items: ["Git", "GitLab", "Jira", "Cursor", "Figma", "Notion"] },
 ];
 
 export type CareerSection = {
