@@ -5,6 +5,7 @@ import {
   education,
   links,
   profile,
+  resumeProjects,
   skills,
   summary,
   training,
@@ -52,7 +53,7 @@ export default function ResumeContent() {
         <dl className="space-y-3">
           {skills.map((group) => (
             <div key={group.category} className="flex flex-col gap-1.5 sm:flex-row sm:gap-4">
-              <dt className="w-36 shrink-0 text-[13px] font-semibold text-gray-500">
+              <dt className="w-28 shrink-0 text-[13px] font-semibold text-gray-500">
                 {group.category}
               </dt>
               <dd className="flex flex-wrap gap-1.5">
@@ -95,7 +96,54 @@ export default function ResumeContent() {
                   ))}
                 </div>
               ) : (
-                <p className="mt-3 text-[14px] leading-[1.8] text-gray-700">{item.summary}</p>
+                item.summary && (
+                  <p className="mt-3 text-[14px] leading-[1.8] text-gray-700">{item.summary}</p>
+                )
+              )}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Projects">
+        <div className="space-y-6">
+          {resumeProjects.map((item) => (
+            <div key={item.name} className="break-inside-avoid-page">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="text-[15px] font-bold text-gray-900">
+                  {item.name}
+                  <span className="ml-2 text-[12px] font-medium text-accent">{item.role}</span>
+                  <span className="ml-1.5 text-[12px] font-medium text-gray-400">· {item.team}</span>
+                </h3>
+                <span className="text-[12px] text-gray-400">{item.period}</span>
+              </div>
+              <p className="mt-1 text-[13px] text-gray-500">{item.description}</p>
+              {item.highlights && (
+                <div className="mt-2.5 space-y-1">
+                  {item.highlights.map((title, i) => (
+                    <div key={title} className="flex items-baseline gap-2 text-[13px]">
+                      <span className="w-4 shrink-0 font-mono text-[11px] font-bold text-accent">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-gray-700">{title}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {item.links && (
+                <div className="mt-2.5 flex flex-wrap gap-2">
+                  {item.links.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-2.5 py-1 text-[11px] font-semibold text-gray-600 transition-colors hover:border-accent hover:text-accent"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               )}
             </div>
           ))}

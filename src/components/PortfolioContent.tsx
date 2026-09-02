@@ -4,7 +4,7 @@ import { BeforeAfterCompare, PendingQueueDiagram } from "@/components/Navigation
 import ProjectScreens from "@/components/ProjectScreens";
 import Section from "@/components/Section";
 import StepSyncCloseup from "@/components/StepSyncCloseup";
-import { problemSolving, profile, projects } from "@/content/resume";
+import { problemSolving, profile, projects, type ProblemCase } from "@/content/resume";
 
 function CaseField({ label, text }: { label: string; text: string }) {
   return (
@@ -14,6 +14,84 @@ function CaseField({ label, text }: { label: string; text: string }) {
         <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent/40" />
         <span>{text}</span>
       </p>
+    </div>
+  );
+}
+
+function ProblemCaseCard({ item, index }: { item: ProblemCase; index: number }) {
+  return (
+    <div className="group rounded-2xl border border-gray-200 p-6 break-inside-avoid-page transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+      <div className="mb-3 flex items-center gap-2">
+        <span className="font-mono text-[12px] font-bold text-accent">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3 className="text-[18px] font-extrabold leading-tight text-gray-900">{item.title}</h3>
+      </div>
+      <CaseField label="문제" text={item.problem} />
+      <CaseField label="해결" text={item.solution} />
+      <CaseField label="결과" text={item.result} />
+      {item.id === "navigation" && (
+        <>
+          <BeforeAfterCompare
+            columns={[
+              { label: "Before", steps: ["수면 측정 종료", "웹뷰 복귀 (pop)", "홈 화면"] },
+              {
+                label: "After",
+                steps: ["수면 측정 종료", "웹뷰 복귀 (pop)", "홈", "router.replace", "리포트 화면"],
+                highlightStep: "router.replace",
+                ok: true,
+              },
+            ]}
+          />
+          <PendingQueueDiagram />
+        </>
+      )}
+      {item.process && (
+        <div className="mt-4 space-y-3">
+          {item.process.rows.map((row) => (
+            <div key={row.label}>
+              <p className="text-[11px] font-bold uppercase tracking-wide text-gray-400">
+                {row.label}
+              </p>
+              {row.loopBack ? (
+                <LoopDiagram steps={row.steps} />
+              ) : row.plain ? (
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {row.steps.map((step) => (
+                    <span
+                      key={step}
+                      className="rounded-lg border border-gray-200 bg-surface px-2.5 py-1.5 text-[11px] font-semibold text-gray-700"
+                    >
+                      {step}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                  {row.steps.map((step, i) => (
+                    <div key={`${step}-${i}`} className="flex items-center gap-1.5">
+                      <span
+                        className={`rounded-lg border px-2.5 py-1.5 text-[11px] font-semibold ${
+                          step === row.highlightStep
+                            ? "border-accent bg-accent/10 text-accent"
+                            : "border-gray-200 bg-surface text-gray-700"
+                        }`}
+                      >
+                        {step}
+                      </span>
+                      {i < row.steps.length - 1 && (
+                        <span className="text-[11px] text-gray-300">→</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+      {item.id === "ga4" && <AdminDashboardPreview />}
+      {item.id === "healthkit" && <StepSyncCloseup />}
     </div>
   );
 }
@@ -126,76 +204,10 @@ export default function PortfolioContent() {
         </p>
       </header>
 
-      <Section title="Problem Solving">
+      <Section title="Work & Impact">
         <div className="space-y-6">
           {problemSolving.map((item, i) => (
-            <div
-              key={item.id}
-              className="group rounded-2xl border border-gray-200 p-6 break-inside-avoid-page transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
-            >
-              <div className="mb-3 flex items-center gap-2">
-                <span className="font-mono text-[12px] font-bold text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-[18px] font-extrabold leading-tight text-gray-900">
-                  {item.title}
-                </h3>
-              </div>
-              <CaseField label="문제" text={item.problem} />
-              <CaseField label="해결" text={item.solution} />
-              <CaseField label="결과" text={item.result} />
-              {item.id === "navigation" && (
-                <>
-                  <BeforeAfterCompare
-                    columns={[
-                      { label: "Before", steps: ["수면 측정 종료", "웹뷰 복귀 (pop)", "홈 화면"] },
-                      {
-                        label: "After",
-                        steps: ["수면 측정 종료", "웹뷰 복귀 (pop)", "홈", "router.replace", "리포트 화면"],
-                        highlightStep: "router.replace",
-                        ok: true,
-                      },
-                    ]}
-                  />
-                  <PendingQueueDiagram />
-                </>
-              )}
-              {item.process && (
-                <div className="mt-4 space-y-3">
-                  {item.process.rows.map((row) => (
-                    <div key={row.label}>
-                      <p className="text-[11px] font-bold uppercase tracking-wide text-gray-400">
-                        {row.label}
-                      </p>
-                      {row.loopBack ? (
-                        <LoopDiagram steps={row.steps} />
-                      ) : (
-                        <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                          {row.steps.map((step, i) => (
-                            <div key={`${step}-${i}`} className="flex items-center gap-1.5">
-                              <span
-                                className={`rounded-lg border px-2.5 py-1.5 text-[11px] font-semibold ${
-                                  step === row.highlightStep
-                                    ? "border-accent bg-accent/10 text-accent"
-                                    : "border-gray-200 bg-surface text-gray-700"
-                                }`}
-                              >
-                                {step}
-                              </span>
-                              {i < row.steps.length - 1 && (
-                                <span className="text-[11px] text-gray-300">→</span>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-              {item.id === "ga4" && <AdminDashboardPreview />}
-              {item.id === "healthkit" && <StepSyncCloseup />}
-            </div>
+            <ProblemCaseCard key={item.id} item={item} index={i} />
           ))}
         </div>
       </Section>
