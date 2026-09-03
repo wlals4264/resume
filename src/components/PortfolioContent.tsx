@@ -291,7 +291,7 @@ export default function PortfolioContent({ showIndex = true }: { showIndex?: boo
           </div>
 
           <div>
-            <p className="mb-4 pl-1 text-[12px] font-bold uppercase tracking-wide text-gray-400">
+            <p className="mb-4 break-after-avoid-page pl-1 text-[12px] font-bold uppercase tracking-wide text-gray-400">
               Work & Impact
             </p>
             <div className="space-y-6 border-l-2 border-gray-100 pl-4">
