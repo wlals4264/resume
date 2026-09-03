@@ -11,7 +11,13 @@ import {
   training,
 } from "@/content/resume";
 
-export default function ResumeContent() {
+export default function ResumeContent({
+  currentSalary,
+  desiredSalary,
+}: {
+  currentSalary?: string;
+  desiredSalary?: string;
+} = {}) {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-24">
       <header className="flex items-end justify-between gap-6 pb-10 pt-16">
@@ -29,6 +35,21 @@ export default function ResumeContent() {
             <span className="text-gray-300">·</span>
             <span>{profile.address}</span>
           </div>
+          {(currentSalary || desiredSalary) && (
+            <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] text-gray-500">
+              {currentSalary && (
+                <span>
+                  현재 연봉 <span className="text-gray-700">{currentSalary}</span>
+                </span>
+              )}
+              {currentSalary && desiredSalary && <span className="text-gray-300">·</span>}
+              {desiredSalary && (
+                <span>
+                  희망 연봉 <span className="text-gray-700">{desiredSalary}</span>
+                </span>
+              )}
+            </div>
+          )}
         </div>
         <Image
           src="/images/profile.jpg"

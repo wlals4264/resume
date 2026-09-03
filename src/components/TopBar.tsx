@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SalaryPdfDownload from "@/components/SalaryPdfDownload";
 import { profile } from "@/content/resume";
 
 const tabs = [
@@ -39,28 +40,32 @@ export default function TopBar() {
             );
           })}
         </nav>
-        <a
-          href={pdfHref}
-          download={pdfFilename}
-          className="flex items-center gap-1.5 rounded-lg bg-accent px-4 py-1.5 text-[12px] font-bold text-white transition-colors hover:bg-accent/85"
-        >
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+        {isPortfolio ? (
+          <a
+            href={pdfHref}
+            download={pdfFilename}
+            className="flex items-center gap-1.5 rounded-lg bg-accent px-4 py-1.5 text-[12px] font-bold text-white transition-colors hover:bg-accent/85"
           >
-            <path d="M12 3v12" />
-            <path d="m7 10 5 5 5-5" />
-            <path d="M5 21h14" />
-          </svg>
-          PDF 저장
-        </a>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 3v12" />
+              <path d="m7 10 5 5 5-5" />
+              <path d="M5 21h14" />
+            </svg>
+            PDF 저장
+          </a>
+        ) : (
+          <SalaryPdfDownload />
+        )}
       </div>
     </header>
   );

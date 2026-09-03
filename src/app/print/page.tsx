@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function PrintPage() {
-  return <ResumeContent />;
+export default async function PrintPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ currentSalary?: string; desiredSalary?: string }>;
+}) {
+  const { currentSalary, desiredSalary } = await searchParams;
+  return <ResumeContent currentSalary={currentSalary} desiredSalary={desiredSalary} />;
 }
