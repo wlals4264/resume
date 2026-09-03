@@ -201,7 +201,7 @@ function LoopDiagram({ steps }: { steps: string[] }) {
   );
 }
 
-export default function PortfolioContent() {
+export default function PortfolioContent({ showIndex = true }: { showIndex?: boolean }) {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-24">
       <header className="pb-6 pt-10">
@@ -216,39 +216,44 @@ export default function PortfolioContent() {
           직접 진행한 개인&팀 프로젝트입니다.
         </p>
 
-        <div className="mt-4 rounded-xl border border-gray-200 p-3">
-          <p className="text-[10px] font-bold uppercase tracking-wide text-gray-400">Index</p>
+        {showIndex && (
+          <div className="mt-4 rounded-xl border border-gray-200 p-3">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-gray-400">Index</p>
 
-          <a href={`#${kkuljam.name}`} className="mt-2 block text-[13px] font-bold text-gray-900 hover:text-accent">
-            {kkuljam.name}
-          </a>
-          <div className="mt-1.5 grid grid-cols-2 gap-x-6 gap-y-0.5 pl-3">
-            {problemSolving.map((item, i) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="flex items-baseline gap-1.5 text-[11px] text-gray-500 hover:text-accent"
-              >
-                <span className="font-mono text-[10px] font-bold text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="truncate">{item.title}</span>
-              </a>
-            ))}
-          </div>
+            <a
+              href={`#${kkuljam.name}`}
+              className="mt-2 block text-[13px] font-bold text-gray-900 hover:text-accent"
+            >
+              {kkuljam.name}
+            </a>
+            <div className="mt-1.5 grid grid-cols-2 gap-x-6 gap-y-0.5 pl-3">
+              {problemSolving.map((item, i) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="flex items-baseline gap-1.5 text-[11px] text-gray-500 hover:text-accent"
+                >
+                  <span className="font-mono text-[10px] font-bold text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="truncate">{item.title}</span>
+                </a>
+              ))}
+            </div>
 
-          <div className="mt-3 space-y-1 border-t border-gray-100 pt-2">
-            {projects.map((project) => (
-              <a
-                key={project.name}
-                href={`#${project.name}`}
-                className="block text-[13px] font-bold text-gray-900 hover:text-accent"
-              >
-                {project.name}
-              </a>
-            ))}
+            <div className="mt-3 space-y-1 border-t border-gray-100 pt-2">
+              {projects.map((project) => (
+                <a
+                  key={project.name}
+                  href={`#${project.name}`}
+                  className="block text-[13px] font-bold text-gray-900 hover:text-accent"
+                >
+                  {project.name}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </header>
 
       <Section title="Projects">

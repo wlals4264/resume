@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPrintPage() {
-  return <PortfolioContent />;
+  return <PortfolioContent showIndex={false} />;
 }
