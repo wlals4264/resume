@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AdminDashboardPreview from "@/components/AdminDashboardPreview";
 import BlogPostCard from "@/components/BlogPostCard";
 import { BeforeAfterCompare, PendingQueueDiagram } from "@/components/NavigationFlowDiagrams";
@@ -18,6 +19,26 @@ function CaseField({ label, text }: { label: string; text: string }) {
         <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent/40" />
         <span>{text}</span>
       </p>
+    </div>
+  );
+}
+
+function LighthouseCompare() {
+  return (
+    <div className="mt-4 grid grid-cols-2 gap-3">
+      {(
+        [
+          { src: "/images/portfolio/home-loading/before.png", label: "Before · LCP 7.87s" },
+          { src: "/images/portfolio/home-loading/after.png", label: "After · LCP 1.74s" },
+        ] as const
+      ).map(({ src, label }) => (
+        <div key={src}>
+          <p className="mb-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-400">{label}</p>
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-surface">
+            <Image src={src} alt={label} width={640} height={558} className="h-auto w-full" />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -103,6 +124,7 @@ function ProblemCaseCard({ item, index }: { item: ProblemCase; index: number }) 
           <FunnelStatsPreview />
         </>
       )}
+      {item.id === "home-loading" && <LighthouseCompare />}
       {item.id === "healthkit" && <StepSyncCloseup />}
       {item.id === "admin-reporting-dashboard" && <SprintDashboardPreview />}
     </div>

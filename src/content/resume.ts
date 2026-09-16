@@ -244,6 +244,26 @@ export const problemSolving: ProblemCase[] = [
     result: "전체 회의 시 별도 보고 자료 없이 대시보드 화면을 함께 보며 논의할 수 있는 체계를 만들어, 반복되는 보고 준비 부담을 줄임",
   },
   {
+    id: "home-loading",
+    group: "achievement",
+    title: "홈 초기 로딩 성능 개선 — 이미지·중복 API 최적화",
+    problem:
+      "홈 화면 진입 시 LCP가 7.87s(Poor)로 측정됐고, Lighthouse 상 LCP 엘리먼트가 자러가기 버튼 아이콘 이미지로 확인됨. 원인을 추적한 결과 628KB에 달하는 무거운 PNG 아이콘, 세션 조회 API 중복 호출, prefetch 미분리 구조가 초기 렌더링을 지연시키고 있었음",
+    solution:
+      "자러가기 버튼 아이콘을 PNG(628KB)에서 WebP(29KB)로 전환해 이미지 용량을 95% 이상 줄이고, 중복 호출되던 세션 조회 로직을 제거했으며, HomeWithPrefetch를 분리해 초기 렌더링 경로를 정리",
+    result: "Lighthouse 기준 LCP가 7.87s(Poor) → 1.74s(Good)로 77.9%(약 4.5배) 단축, CLS 0 유지",
+    process: {
+      rows: [
+        { label: "아이콘 이미지 용량", steps: ["PNG 628KB", "WebP 29KB"], highlightStep: "WebP 29KB" },
+        {
+          label: "Local metrics (Lighthouse)",
+          steps: ["LCP 7.87s · Poor", "LCP 1.74s · Good"],
+          highlightStep: "LCP 1.74s · Good",
+        },
+      ],
+    },
+  },
+  {
     id: "audio-session",
     group: "troubleshooting",
     title: "iOS 통합 오디오 세션 관리",
