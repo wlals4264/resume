@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SalaryPdfDownload from "@/components/SalaryPdfDownload";
+import { profile } from "@/content/resume";
 
 const tabs = [
   { href: "/", label: "이력서" },
@@ -13,6 +14,8 @@ export default function TopBar() {
   const pathname = usePathname();
 
   if (pathname === "/print" || pathname === "/portfolio/print") return null;
+
+  const isPortfolio = pathname === "/portfolio";
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur-xl">
@@ -35,8 +38,32 @@ export default function TopBar() {
             );
           })}
         </nav>
-        {/* 어느 탭에서든 PDF 저장은 항상 이력서 페이지(/print) 기준으로 통일 */}
-        <SalaryPdfDownload />
+        {isPortfolio ? (
+          <a
+            href="/api/portfolio-pdf"
+            download={`포트폴리오_${profile.name}.pdf`}
+            className="flex items-center gap-1.5 rounded-lg bg-accent px-4 py-1.5 text-[12px] font-bold text-white transition-colors hover:bg-accent/85"
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 3v12" />
+              <path d="m7 10 5 5 5-5" />
+              <path d="M5 21h14" />
+            </svg>
+            PDF 저장
+          </a>
+        ) : (
+          <SalaryPdfDownload />
+        )}
       </div>
     </header>
   );
